@@ -1,21 +1,23 @@
 const router = require('express').Router();
-const { SALT_ROUNDS, JWT_SECRET } = require('../config/config');
+const { registerUser, loginUser } = require('../services/authService');
+
 
 router.post('/register', async (req, res) => {
     try {
-
-        res.status(201).json({ message: `${req.body?.username} has been created successfully.` });
+        const userData = await registerUser(req.body);
+        console.log(userData);
+        res.status(201).json({ message: `${userData.username} has been created successfully.` });
     } catch (error) {
-        return res.status(409).send({ message: error });
+        return res.status(409).json({ error });
     }
 });
 
 router.post('/login', async (req, res) => {
     try {
-
-        res.status(200).json({ userdata: req.body, message: `${req.body?.username} has been logget in successfully.` })
+        const userData = await loginUser(req.body);
+        res.status(200).json({ userData, message: `${userData.username} has been logget in successfully.` })
     } catch (error) {
-        return res.status(403).send({ message: error });
+        return res.status(403).json({ error });
     }
 });
 
