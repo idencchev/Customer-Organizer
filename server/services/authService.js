@@ -15,13 +15,13 @@ async function registerUser(data) {
         throw 'Passwords are not same!';
     }
 
-    let user = new User({ username: data.username.toLowerCase().trim(), password: data.password.trim() });
+    let user = new User({ username: data.username.toLowerCase().trim(), password: data.password.trim(), isAdmin: false });
     return await user.save();
 }
 
 async function loginUser(data) {
 
-    const { _id, username, password } = await User.findOne({ username: data.username.toLowerCase() }) || {};
+    const { _id, username, password, isAdmin } = await User.findOne({ username: data.username.toLowerCase() }) || {};
 
     if (username == undefined) {
         throw 'This username does not exist!';
@@ -33,7 +33,7 @@ async function loginUser(data) {
         throw 'Wrong password!';
     }
 
-    const token = jwt.sign({ id: _id }, JWT_SECRET, { expiresIn: '2d' });
+    const token = jwt.sign({ id: _id, isAdmin: isAdmin }, JWT_SECRET, { expiresIn: '2d' });
 
     return {
         _id: _id,

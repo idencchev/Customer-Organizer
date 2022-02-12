@@ -14,7 +14,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, errorMsg.PASSWORD_REQUIRED],
         minlength: [6, errorMsg.PASSWORD_LENGTH]
-    }
+    },
+    isAdmin: {
+        type: Boolean,
+    },
 });
 
 userSchema.pre("save", async function (next) {
