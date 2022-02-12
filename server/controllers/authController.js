@@ -1,8 +1,6 @@
 const router = require('express').Router();
 const { SALT_ROUNDS, JWT_SECRET } = require('../config/config');
 
-
-
 router.post('/register', async (req, res) => {
     try {
 
