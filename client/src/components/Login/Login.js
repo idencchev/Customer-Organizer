@@ -20,21 +20,34 @@ function Login() {
 
     const onLoginHandler = async (e) => {
         e.preventDefault();
-        const request = await fetch('http://localhost:5000/api/auth/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: userData.username,
-                password: userData.password
-            })
-        });
-        const data = await request.json();
 
-     const token = data.userData.token;
-     document.cookie = `x-auth-token = ${token}`;
-        
+        try {
+
+            const request = await fetch('http://localhost:5000/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: userData.username,
+                    password: userData.password
+                })
+            });
+
+            if (!request.ok) {
+                throw await request.json();
+            }
+
+            const data = await request.json();
+            const token = data.userData.token;
+            document.cookie = `x-auth-token = ${token}`;
+
+        } catch (error) {
+            console.log(error);
+        }
+
+
+
     }
 
 

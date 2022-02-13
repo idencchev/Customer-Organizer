@@ -1,12 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { sideMenuHandler } from "../../utils/sideMenuHandler";
 import './Header.css';
 
 function Header() {
+    const history = useHistory();
 
     function onLogoutHandler() {
-        document.cookie = `x-auth-token= ;expires=Thu, 01 Jan 1970 00:00:01 GMT;`
+        document.cookie = `x-auth-token= ;expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
+        history.push('/');
     }
 
     return (
