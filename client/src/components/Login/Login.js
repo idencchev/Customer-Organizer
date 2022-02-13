@@ -1,7 +1,12 @@
 import React, { useState } from "react";
+import { useStateValue } from "../../StateProvider/StateProvider.js";
 import './Login.css';
 
 function Login() {
+
+    const [{ user }, dicpatch] = useStateValue();
+
+
 
     const [userData, setUserData] = useState({
         username: "",
@@ -39,6 +44,17 @@ function Login() {
             }
 
             const data = await request.json();
+
+            dicpatch({
+                type: 'ADD_USER',
+                item: {
+                    username: data.userData.username,
+                    isAdmin: data.userData.isAdmin,
+                    id: data.userData._id
+                }
+            })
+
+
             const token = data.userData.token;
             document.cookie = `x-auth-token = ${token}`;
 
@@ -46,7 +62,7 @@ function Login() {
             console.log(error);
         }
 
-
+        console.log(user);
 
     }
 
