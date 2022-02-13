@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const authController = require('./controllers/authController');
-const appointmentsController = require('./controllers/appointmentsController');
+const appointmentsController = require('./controllers/appointmentController');
 
 
 router.use('/auth', authController);

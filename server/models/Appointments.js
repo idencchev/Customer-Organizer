@@ -24,8 +24,10 @@ const appointmentsSchema = new mongoose.Schema({
         type: Number,
         required: [true, errorMsg.PHONE_REQUIRED]
     },
-
+    createdBy: {
+        type: mongoose.Types.ObjectId
+    }
 });
 
 
-module.exports = mongoose.model('User', appointmentsSchema);
+module.exports = mongoose.model('Appointment', appointmentsSchema);

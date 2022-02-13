@@ -2,7 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/User');
-const { SALT_ROUNDS, JWT_SECRET } = require('../config/config');
+const { JWT_SECRET } = require('../config/config');
 
 async function registerUser(data) {
     let checkUsername = await User.findOne({ username: data.username });
@@ -44,7 +44,17 @@ async function loginUser(data) {
 
 }
 
+async function deleteUser(id) {
+    return await User.findByIdAndDelete(id);
+}
+
+async function getAllUsers() {
+    return await User.find();
+}
+
 module.exports = {
     registerUser,
-    loginUser
+    loginUser,
+    deleteUser,
+    getAllUsers
 }

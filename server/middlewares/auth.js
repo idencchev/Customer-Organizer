@@ -23,9 +23,8 @@ function isAuthenticated(req, res, next) {
 };
 
 function isAdmin(req, res, next) {
-    console.log(req.user.isAdmin);
     if (!req.user.isAdmin) {
-        return res.status(401).json({ errorData: 'You need admin permissions for this action!' });
+        return res.status(401).json({ errorData: 'You need Admin permissions for this action!' });
     }
     next();
 };
