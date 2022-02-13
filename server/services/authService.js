@@ -38,6 +38,7 @@ async function loginUser(data) {
     return {
         _id: _id,
         username: username,
+        isAdmin: isAdmin,
         token: token
     }
 

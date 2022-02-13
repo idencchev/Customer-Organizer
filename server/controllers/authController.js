@@ -1,11 +1,10 @@
 const router = require('express').Router();
-const { isAuthenticated } = require('../middlewares/auth');
-const { isAdmin } = require('../middlewares/isAdmin');
+const { isAuthenticated, isAdmin } = require('../middlewares/auth');
 const { registerUser, loginUser } = require('../services/authService');
 const { COOKIE_NAME } = require('../config/config');
 
 
-router.post('/register', async (req, res) => {
+router.post('/register', [isAuthenticated, isAdmin], async (req, res) => {
     try {
         const userData = await registerUser(req.body);
 
@@ -17,11 +16,7 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-
         const userData = await loginUser(req.body);
-
-        res.cookie(COOKIE_NAME, userData.token, { httpOnly: true });
-
         res.status(200).json({ userData, message: `${userData.username} has been logget in successfully.` })
     } catch (error) {
         return res.status(403).json({ error });

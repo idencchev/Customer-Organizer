@@ -4,10 +4,15 @@ import { sideMenuHandler } from "../../utils/sideMenuHandler";
 import './Header.css';
 
 function Header() {
+
+    function onLogoutHandler() {
+        document.cookie = `x-auth-token= ;expires=Thu, 01 Jan 1970 00:00:01 GMT;`
+    }
+
     return (
         <header className='my-header'>
             <div className="topnav" id="myTopnav">
-                <Link to="/" className="active">VICTOR'S AUTO CARE LTD</Link>
+                <Link to="/" className="active">VIKTOR'S AUTO CARE LTD</Link>
                 <Link to="#" className="icon" onClick={sideMenuHandler}>
                     <i className="fa fa-bars"></i>
                 </Link>
@@ -16,7 +21,7 @@ function Header() {
                 <Link className="my-nav-link" to="/create/car">ADD ACTIVE CARS</Link>
                 <Link className="my-nav-link" to="/view/cars">ACTIVE CARS</Link>
                 <Link className="my-nav-link" to="/view/archive/search">ARCHIVE</Link>
-                <Link className="my-nav-link" to="/logout">LOGOUT</Link>
+                <Link onClick={onLogoutHandler} className="my-nav-link" to="/logout">LOGOUT</Link>
                 <Link className="my-nav-link" to="/login">LOGIN</Link>
                 <Link className="my-nav-link" to="/register">REGISTER</Link>
                 <Link className="my-nav-link" to="/admin">ADMIN PANEL</Link>
