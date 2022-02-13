@@ -1,30 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { sideMenuHandler } from "../../utils/sideMenuHandler";
+import './Header.css';
 
 function Header() {
     return (
-        <header>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div className="container">
-                    <Link className="navbar-brand" to="/">Viktor's Auto Care Limited</Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li className="nav-item user"><Link className="nav-link" to="/create/appointment">Add Appointment</Link></li>
-                            <li className="nav-item user"><Link className="nav-link" to="/view/appointments">Appointments</Link></li>
-                            <li className="nav-item user"><Link className="nav-link" to="/create/car">Add Car In Garage</Link></li>
-                            <li className="nav-item user"><Link className="nav-link" to="/view/cars">Cars Currently In The Garage</Link></li>
-                            <li className="nav-item user"><Link className="nav-link" to="/view/archive/search">Search in Archive</Link></li>
-                            <li id="logout" className="nav-item user"><Link className="nav-link" to="/logout">Logout</Link></li>
-                            <li className="nav-item guest"><Link className="nav-link" to="/login">Login</Link></li>
-                            <li className="nav-item guest"><Link className="nav-link" to="/register">Register</Link></li>
-                            <li className="nav-item guest"><Link className="nav-link" to="/admin">Admin Panel</Link></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+        <header className='my-header'>
+            <div className="topnav" id="myTopnav">
+                <Link to="/" className="active">VICTOR'S AUTO CARE LTD</Link>
+                <Link to="#" className="icon" onClick={sideMenuHandler}>
+                    <i className="fa fa-bars"></i>
+                </Link>
+                <Link className="my-nav-link" to="/create/appointment">ADD APPOINTMENT</Link>
+                <Link className="my-nav-link" to="/view/appointments">APPOINTMENTS</Link>
+                <Link className="my-nav-link" to="/create/car">ADD ACTIVE CARS</Link>
+                <Link className="my-nav-link" to="/view/cars">ACTIVE CARS</Link>
+                <Link className="my-nav-link" to="/view/archive/search">ARCHIVE</Link>
+                <Link className="my-nav-link" to="/logout">LOGOUT</Link>
+                <Link className="my-nav-link" to="/login">LOGIN</Link>
+                <Link className="my-nav-link" to="/register">REGISTER</Link>
+                <Link className="my-nav-link" to="/admin">ADMIN PANEL</Link>
+            </div>
         </header>
     );
 }

@@ -1,11 +1,9 @@
 import React from "react";
-
+import './Footer.css'
 function Footer() {
     return (
-        <footer className="py-2 bg-dark">
-            <div className="container">
-                <p className="m-0 text-center text-white">Copyright &copy; Developed by Ivan Denchev</p>
-            </div>
+        <footer className="my-footer">
+            <p className="my-footer-p">Copyright &copy; Developed by Ivan Denchev</p>
         </footer>
     );
 }
