@@ -1,16 +1,15 @@
 import { Route, Switch } from "react-router-dom";
 import './App.css';
-import ActiveCars from "./components/ActiveCars/ActiveCars";
-import AddActiveCars from "./components/AddActiveCars/AddActiveCars";
+import ActiveCars from "./components/ActiveCars/ActiveCars.js";
+import AddActiveCars from "./components/AddActiveCars/AddActiveCars.js";
 import AddAppointment from "./components/AddAppointment/AddAppointment";
-import Admin from "./components/Admin/Admin";
-import Appointments from "./components/Appointments/Appointments";
-import Archive from "./components/Archive/Archive";
+import Admin from "./components/Admin/Admin.js";
+import Appointments from "./components/Appointments/Appointments.js";
+import Archive from "./components/Archive/Archive.js";
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from "./components/Login/Login";
-import { clearStorage } from "./utils/clearStorage.js";
 
 function App() {
 
@@ -19,8 +18,6 @@ function App() {
       <Header />
       <Switch>
         <Route path="/logout" render={props => {
-          document.cookie = `x-auth-token= ;expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
-          clearStorage();
           props.history.push('/');
         }} />
         <Route path="/user/admin" component={Admin} />

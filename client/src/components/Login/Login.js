@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+import { useStateValue } from "../../Context/StateProvider.js";
 import './Login.css';
 
 function Login() {
+
+    const [{ user }, dispatch] = useStateValue();
 
     const [userData, setUserData] = useState({
         username: "",
         password: "",
         redirect: null,
     });
+
 
     const onChangeHandler = (e) => {
 
@@ -40,19 +44,30 @@ function Login() {
             }
 
             const data = await request.json();
+
             const token = data.userData.token;
             document.cookie = `x-auth-token = ${token}`;
 
             localStorage.setItem('userData', JSON.stringify({
                 username: data.userData.username,
                 isAdmin: data.userData.isAdmin,
-                id: data.userData._id
+                id: data.userData._id,
             }));
+
+            dispatch({
+                type: 'ADD_USER',
+                item: {
+                    username: data.userData.username,
+                    isAdmin: data.userData.isAdmin,
+                    id: data.userData._id,
+                }
+            });
 
         } catch (error) {
             console.log(error);
         }
     }
+
 
     return (
         <div>

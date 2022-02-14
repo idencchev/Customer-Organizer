@@ -1,9 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { sideMenuHandler } from "../../utils/sideMenuHandler";
+import { useStateValue } from "../../Context/StateProvider";
 import './Header.css';
 
-function Header() {
+function Header(props) {
+
+    const [{ user }, dispatch] = useStateValue();
+
+    const logoutHandler = () => {
+        document.cookie = `x-auth-token= ;expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
+        localStorage.clear()
+        dispatch({
+            type: 'ADD_USER',
+            item: []
+        })
+    }
 
     return (
         <header className='my-header'>
@@ -17,7 +29,7 @@ function Header() {
                 <Link className="my-nav-link" to="/create/car">ADD ACTIVE CARS</Link>
                 <Link className="my-nav-link" to="/view/cars">ACTIVE CARS</Link>
                 <Link className="my-nav-link" to="/view/archive">ARCHIVE</Link>
-                <Link className="my-nav-link" to="/logout">LOGOUT</Link>
+                <Link className="my-nav-link" to="/logout" onClick={logoutHandler}>LOGOUT</Link>
                 <Link className="my-nav-link" to="/login">LOGIN</Link>
                 <Link className="my-nav-link" to="/user/admin">ADMIN PANEL</Link>
             </div>
