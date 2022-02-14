@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { useStateValue } from "../../Context/StateProvider.js";
 import './Login.css';
 
+
+
 function Login(props) {
 
     const [{ user }, dispatch] = useStateValue();
 
-    const [userData, setUserData] = useState({
+     const [userData, setUserData] = useState({
         username: "",
         password: "",
         redirect: null,
@@ -69,21 +71,19 @@ function Login(props) {
 
 
     return (
-        <div>
+        <div className="login">
             <form onSubmit={onLoginHandler}>
                 <div className="container">
-                    <label htmlFor="uname"><b>Username</b></label>
+                    <label htmlFor="uname"><b>USERNAME</b></label>
                     <input onChange={onChangeHandler} type="text" placeholder="Enter Username" name="username" required />
 
-                    <label htmlFor="psw"><b>Password</b></label>
+                    <label htmlFor="psw"><b>PASSWORD</b></label>
                     <input onChange={onChangeHandler} type="password" placeholder="Enter Password" name="password" required />
 
-                    <button type="submit">Login</button>
+                    <button className="btn-submit"type="submit">LOGIN</button>
 
                 </div>
             </form>
-
-
         </div>
 
     )

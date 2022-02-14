@@ -11,7 +11,6 @@ function IsAdmin(WrappedComponent) {
         const history = useHistory();
 
         if (userData?.isAdmin == false) {
-            console.log('trye');
             history.push('/');
             return null;
         }
