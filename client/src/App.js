@@ -10,6 +10,8 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from "./components/Login/Login";
+import IsAdmin from "./HOC/isAdmin.js";
+import IsAuth from "./HOC/isAuth.js";
 
 function App() {
 
@@ -20,12 +22,12 @@ function App() {
         <Route path="/logout" render={props => {
           props.history.push('/');
         }} />
-        <Route path="/user/admin" component={Admin} />
-        <Route path="/view/archive" component={Archive} />
-        <Route path="/view/cars" component={ActiveCars} />
-        <Route path="/create/car" component={AddActiveCars} />
-        <Route path="/view/appointments" component={Appointments} />
-        <Route path="/create/appointment" component={AddAppointment} />
+        <Route exact path="/user/admin" component={IsAdmin(Admin)} />
+        <Route path="/view/archive" component={IsAuth(Archive)} />
+        <Route path="/view/cars" component={IsAuth(ActiveCars)} />
+        <Route path="/create/car" component={IsAuth(AddActiveCars)} />
+        <Route path="/view/appointments" component={IsAuth(Appointments)} />
+        <Route path="/create/appointment" component={IsAuth(AddAppointment)} />
         <Route path="/login" component={Login} />
         <Route path="/" component={Home} />
       </Switch>

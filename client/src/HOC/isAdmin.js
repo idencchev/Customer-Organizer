@@ -1,16 +1,20 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useStateValue } from '../Context/StateProvider';
 
-
-function IsAuth(WrappedComponent) {
+function IsAdmin(WrappedComponent) {
 
 
     const Component = (props) => {
 
         let userData = JSON.parse(localStorage.getItem('userData'));
-        
+
         const history = useHistory();
+
+        if (userData?.isAdmin == false) {
+            console.log('trye');
+            history.push('/');
+            return null;
+        }
 
         if (!userData) {
             history.push('/');
@@ -22,4 +26,4 @@ function IsAuth(WrappedComponent) {
     return Component;
 }
 
-export default IsAuth;
+export default IsAdmin;
