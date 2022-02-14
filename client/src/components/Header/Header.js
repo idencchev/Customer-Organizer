@@ -4,7 +4,7 @@ import { sideMenuHandler } from "../../utils/sideMenuHandler";
 import { useStateValue } from "../../Context/StateProvider";
 import './Header.css';
 
-function Header(props) {
+function Header() {
 
     const [{ user }, dispatch] = useStateValue();
 
@@ -14,8 +14,8 @@ function Header(props) {
         dispatch({
             type: 'ADD_USER',
             item: []
-        })
-    }
+        });
+    };
 
     return (
         <header className='my-header'>

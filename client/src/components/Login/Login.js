@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useStateValue } from "../../Context/StateProvider.js";
 import './Login.css';
 
-function Login() {
+function Login(props) {
 
     const [{ user }, dispatch] = useStateValue();
 
@@ -14,7 +14,6 @@ function Login() {
 
 
     const onChangeHandler = (e) => {
-
         setUserData((prevState) => ({
             ...prevState,
             [e.target.name]: e.target.value.toLowerCase()
@@ -22,12 +21,10 @@ function Login() {
 
     };
 
-
     const onLoginHandler = async (e) => {
         e.preventDefault();
 
         try {
-
             const request = await fetch('http://localhost:5000/api/auth/login', {
                 method: 'POST',
                 headers: {
@@ -44,8 +41,8 @@ function Login() {
             }
 
             const data = await request.json();
-
             const token = data.userData.token;
+
             document.cookie = `x-auth-token = ${token}`;
 
             localStorage.setItem('userData', JSON.stringify({
@@ -66,6 +63,8 @@ function Login() {
         } catch (error) {
             console.log(error);
         }
+
+        props.history.push('/');
     }
 
 
