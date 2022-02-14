@@ -33,7 +33,7 @@ async function loginUser(data) {
         throw 'Wrong password!';
     }
 
-    const token = jwt.sign({ id: _id, isAdmin: isAdmin }, JWT_SECRET, { expiresIn: '2d' });
+    const token = jwt.sign({ id: _id, isAdmin: isAdmin, username: username }, JWT_SECRET, { expiresIn: '2d' });
 
     return {
         _id: _id,

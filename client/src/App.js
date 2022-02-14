@@ -16,6 +16,10 @@ function App() {
     <div className="App">
       <Header />
       <Switch>
+        <Route path="/logout" render={props => {
+          document.cookie = `x-auth-token= ;expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
+          props.history.push('/');
+        }} />
         <Route path="/user/admin" component={Admin} />
         <Route path="/view/archive" component={Archive} />
         <Route path="/view/cars" component={ActiveCars} />

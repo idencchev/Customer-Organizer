@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { useStateValue } from "../../StateProvider/StateProvider.js";
+import { useStateValue } from "../../Context/StateProvider";
 import './Login.css';
 
 function Login() {
 
     const [{ user }, dicpatch] = useStateValue();
-
-
 
     const [userData, setUserData] = useState({
         username: "",
@@ -20,6 +18,7 @@ function Login() {
             ...prevState,
             [e.target.name]: e.target.value.toLowerCase()
         }));
+
     };
 
 
@@ -52,8 +51,7 @@ function Login() {
                     isAdmin: data.userData.isAdmin,
                     id: data.userData._id
                 }
-            })
-
+            });
 
             const token = data.userData.token;
             document.cookie = `x-auth-token = ${token}`;
@@ -62,14 +60,11 @@ function Login() {
             console.log(error);
         }
 
-        console.log(user);
-
     }
 
 
     return (
         <div>
-
             <form onSubmit={onLoginHandler}>
                 <div className="container">
                     <label htmlFor="uname"><b>Username</b></label>
