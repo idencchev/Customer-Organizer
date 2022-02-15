@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { loginUser } from "../../api/data.js";
 import { useStateValue } from "../../Context/StateProvider.js";
 import './Login.css';
 
@@ -11,9 +12,7 @@ function Login(props) {
     const [userData, setUserData] = useState({
         username: "",
         password: "",
-        redirect: null,
     });
-
 
     const onChangeHandler = (e) => {
         setUserData((prevState) => ({
@@ -25,48 +24,25 @@ function Login(props) {
 
     const onLoginHandler = async (e) => {
         e.preventDefault();
-
         try {
-            const request = await fetch('http://localhost:5000/api/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    username: userData.username,
-                    password: userData.password
-                })
-            });
 
-            if (!request.ok) {
-                throw await request.json();
-            }
-
-            const data = await request.json();
-            const token = data.userData.token;
-
-            document.cookie = `x-auth-token = ${token}`;
-
-            localStorage.setItem('userData', JSON.stringify({
-                username: data.userData.username,
-                isAdmin: data.userData.isAdmin,
-                id: data.userData._id,
-            }));
+            const response = await loginUser(userData)
 
             dispatch({
                 type: 'ADD_USER',
                 item: {
-                    username: data.userData.username,
-                    isAdmin: data.userData.isAdmin,
-                    id: data.userData._id,
+                    username: response.userData.username,
+                    isAdmin: response.userData.isAdmin,
+                    id: response.userData._id,
                 }
             });
+
+            window.location.href = '/';
+           // props.history.push('/');
 
         } catch (error) {
             console.log(error);
         }
-        window.location.href = '/';
-       // props.history.push('/');
     }
 
 
