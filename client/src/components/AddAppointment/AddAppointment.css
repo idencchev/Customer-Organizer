@@ -1,3 +1,28 @@
-.add-appointment{
-    color: white;
+.add-appointment {
+    display: flex;
+    justify-content: space-around;
+}
+
+.container-add-appointment {
+    padding: 16px;
+    background: #131921;
+    border: 3px solid rgb(254, 153, 0);
+    border-radius: 10px;
+    text-align: center;
+}
+
+label {
+    padding: 18px 0px 3px 0;
+    display: inline-block;
+}
+
+.textarea-notes {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 3px solid rgb(254, 153, 0);
+    box-sizing: border-box;
+    justify-content: center;
+    border-radius: inherit;
 }

@@ -20,6 +20,10 @@ const appointmentsSchema = new mongoose.Schema({
         type: String,
         required: [true, errorMsg.OWNER_REQUIRED]
     },
+    notes: {
+        type: String,
+        required: [true, errorMsg.OWNER_REQUIRED]
+    },
     ownerPhone: {
         type: Number,
         required: [true, errorMsg.PHONE_REQUIRED]

@@ -8,7 +8,7 @@ function Login(props) {
 
     const [{ user }, dispatch] = useStateValue();
 
-     const [userData, setUserData] = useState({
+    const [userData, setUserData] = useState({
         username: "",
         password: "",
         redirect: null,
@@ -65,8 +65,8 @@ function Login(props) {
         } catch (error) {
             console.log(error);
         }
-
-        props.history.push('/');
+        window.location.href = '/';
+       // props.history.push('/');
     }
 
 
@@ -80,7 +80,7 @@ function Login(props) {
                     <label htmlFor="psw"><b>PASSWORD</b></label>
                     <input onChange={onChangeHandler} type="password" placeholder="Enter Password" name="password" required />
 
-                    <button className="btn-submit"type="submit">LOGIN</button>
+                    <button className="btn-submit" type="submit">LOGIN</button>
 
                 </div>
             </form>
