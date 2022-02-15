@@ -10,10 +10,9 @@ export async function loginUser(data) {
     try {
         const response = await api.post(endpoints.login, data);
         document.cookie = `x-auth-token = ${response.userData.token}`;
-        setUserData(response);
+        setUserData(response.userData);
         return response;
     } catch (error) {
         throw error;
     }
-
 }

@@ -19,9 +19,6 @@ function App() {
     <div className="App">
       <Header />
       <Switch>
-        <Route path="/logout" render={props => {
-          props.history.push('/');
-        }} />
         <Route exact path="/user/admin" component={IsAdmin(Admin)} />
         <Route path="/view/archive" component={IsAuth(Archive)} />
         <Route path="/view/cars" component={IsAuth(ActiveCars)} />
