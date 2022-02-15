@@ -1,5 +1,3 @@
-import { getUserData, setUserData, clearUserData } from "./localStorageSetup.js";
-
 const host = 'http://localhost:5000';
 
 async function request(url, options) {

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 function IsAdmin(WrappedComponent) {
@@ -10,7 +10,7 @@ function IsAdmin(WrappedComponent) {
 
         const history = useHistory();
 
-        if (userData?.isAdmin == false) {
+        if (userData?.isAdmin === false) {
             history.push('/');
             return null;
         }

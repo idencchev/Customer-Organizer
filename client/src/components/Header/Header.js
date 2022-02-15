@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { sideMenuHandler } from "../../utils/sideMenuHandler";
-import { useStateValue } from "../../Context/StateProvider";
 import './Header.css';
 import UserNavigation from "../Navigation/UserNavigation.js";
-import AdminNavigation from "../Navigation/AdminNavigation.js";
 
 function Header() {
 

@@ -12,6 +12,7 @@ import Home from './components/Home/Home';
 import Login from "./components/Login/Login";
 import IsAdmin from "./HOC/isAdmin.js";
 import IsAuth from "./HOC/isAuth.js";
+import isGuest from "./HOC/isGuest.js";
 
 function App() {
 
@@ -25,7 +26,7 @@ function App() {
         <Route path="/create/car" component={IsAuth(AddActiveCars)} />
         <Route path="/view/appointments" component={IsAuth(Appointments)} />
         <Route path="/create/appointment" component={IsAuth(AddAppointment)} />
-        <Route path="/login" component={Login} />
+        <Route path="/login" component={isGuest(Login)} />
         <Route path="/" component={Home} />
       </Switch>
       <Footer />

@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-function IsAuth(WrappedComponent) {
-    const Component = (props) => {
-        
-        let userData = JSON.parse(localStorage.getItem('userData'));
+function isGuest(WrappedComponent) {
+    const Component = (props) => {        
         const history = useHistory();
         
         useEffect(() => {
-            if (!userData) {
+            let userData = JSON.parse(localStorage.getItem('userData'));
+            
+            if (userData) {
                 history.push('/');
                 return null;
             }
@@ -19,4 +19,4 @@ function IsAuth(WrappedComponent) {
     return Component;
 }
 
-export default IsAuth;
+export default isGuest;

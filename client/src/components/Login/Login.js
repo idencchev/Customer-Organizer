@@ -37,8 +37,8 @@ function Login(props) {
                 }
             });
 
-            window.location.href = '/';
-           // props.history.push('/');
+           /// window.location.href = '/';
+            props.history.push('/');
 
         } catch (error) {
             console.log(error);

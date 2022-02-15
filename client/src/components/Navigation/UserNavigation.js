@@ -1,29 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { clearUserData, getUserData } from "../../api/localStorageSetup.js";
-import AdminNavigation from "./AdminNavigation.js";
 
-function UserNavigation(props) {
+function UserNavigation() {
 
-    const [user, setUser] = useState();
+    const [isLogget, setIsLogget] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(false);
 
     const history = useHistory();
-    const userData = getUserData();
 
     useEffect(() => {
+        const userData = getUserData();
+
         if (userData) {
-            return setUser(userData);
+            setIsLogget(true);
+            setIsAdmin(userData.isAdmin);
         }
     }, []);
 
     const logoutHandler = () => {
         document.cookie = `x-auth-token= ;expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
         clearUserData();
-        setUser();
+        setIsLogget(false);
+        setIsAdmin(false);
         history.push('/');
     };
 
-    if (user) {
+    if (isLogget) {
         return (
             <div className="nav-user">
                 <Link className="my-nav-link" to="/create/appointment">ADD APPOINTMENT</Link>
@@ -31,7 +34,7 @@ function UserNavigation(props) {
                 <Link className="my-nav-link" to="/create/car">ADD ACTIVE CARS</Link>
                 <Link className="my-nav-link" to="/view/cars">ACTIVE CARS</Link>
                 <Link className="my-nav-link" to="/view/archive">ARCHIVE</Link>
-                {user.isAdmin ? <AdminNavigation /> : null}
+                {isAdmin ?  <Link className="my-nav-link" to="/user/admin">ADMIN PANEL</Link> : null}
                 <Link className="my-nav-link" to="/" onClick={logoutHandler}>LOGOUT</Link>
             </div>
         );
