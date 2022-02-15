@@ -27,7 +27,7 @@ function Login(props) {
         try {
 
             const response = await loginUser(userData)
-
+            document.cookie = `x-auth-token = ${response.userData.token}`;
             dispatch({
                 type: 'ADD_USER',
                 item: {
@@ -37,8 +37,8 @@ function Login(props) {
                 }
             });
 
-           /// window.location.href = '/';
-            props.history.push('/');
+           window.location.href = '/';
+          //  props.history.push('/');
 
         } catch (error) {
             console.log(error);

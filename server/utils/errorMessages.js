@@ -7,5 +7,6 @@ module.exports = {
     PLATE_REQUIRED: 'Please enter a Plate Number!',
     MAKEANDMODEL_REQUIRED: 'Please enter a Make and Model of the Car!',
     OWNER_REQUIRED: 'Please enter a Owner Name!',
+    NOTES_REQUIRED: 'Please enter a Notes!',
     PHONE_REQUIRED: 'Please enter a Owner\'s Phone Number!',
 }

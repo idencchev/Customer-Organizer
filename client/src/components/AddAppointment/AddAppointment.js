@@ -1,29 +1,28 @@
 import React, { useState } from "react";
+import { createAppointment } from "../../api/data.js";
+import { getUserData } from "../../api/localStorageSetup.js";
 import './AddAppointment.css'
 
-function AddAppointment() {
-
+function AddAppointment(props) {
 
     const [appointmentData, setAppointmentData] = useState();
 
-
     const onAddAppointmentHandler = (e) => {
-        
         setAppointmentData((prevAppointmentData) => ({
             ...prevAppointmentData,
             [e.target.name]: e.target.value
-
-
         }));
+    };
 
-    }
-
-    const createAppointmentHandler = (e) => {
+    const createAppointmentHandler = async (e) => {
         e.preventDefault();
-
-
+        try {
+            await createAppointment(appointmentData);
+            props.history.push('/view/appointments');
+        } catch (error) {
+            console.log(error);
+        }
     }
-
 
     return (
         <div className="add-appointment">
@@ -58,8 +57,6 @@ function AddAppointment() {
 
                 </div>
             </form>
-
-
         </div>
     );
 }

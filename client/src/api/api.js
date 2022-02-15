@@ -3,7 +3,6 @@ const host = 'http://localhost:5000';
 async function request(url, options) {
     try {
         const response = await fetch(host + url, options);
-
         if (!response.ok) {
             const error = await response.json();
             throw error.error;
@@ -17,9 +16,10 @@ async function request(url, options) {
 
 function createOptions(method = 'GET', data) {
     const options = {
+        credentials: "include",
         method,
         headers: {
-
+            
         }
     };
     if (data) {

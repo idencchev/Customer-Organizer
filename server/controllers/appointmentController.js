@@ -3,7 +3,7 @@ const router = require('express').Router();
 const { addAppointment, getAllAppointments, deleteAppointment, editAppointment } = require('../services/appointmentService.js');
 const { isAuthenticated, isAdmin } = require('../middlewares/auth');
 
-router.post('/create', isAuthenticated, async (req, res) => {
+router.post('/create',  isAuthenticated, async (req, res) => {
   try {
 
     const appointmentData = await addAppointment(req.body);

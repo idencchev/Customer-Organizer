@@ -22,7 +22,7 @@ const appointmentsSchema = new mongoose.Schema({
     },
     notes: {
         type: String,
-        required: [true, errorMsg.OWNER_REQUIRED]
+        required: [true, errorMsg.NOTES_REQUIRED]
     },
     ownerPhone: {
         type: Number,
