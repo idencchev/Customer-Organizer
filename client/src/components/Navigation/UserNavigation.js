@@ -1,25 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { clearUserData, getUserData } from "../../api/localStorageSetup.js";
 import { useStateValue } from "../../Context/StateProvider.js";
 import AdminNavigation from "./AdminNavigation.js";
 
 function UserNavigation() {
 
     const [user, setUser] = useState();
-    const userData = JSON.parse(localStorage.getItem('userData'));
 
+    const userData = getUserData();
 
     useEffect(() => {
         if (userData) {
             return setUser(userData);
         }
-       setUser();
+        setUser();
     }, []);
 
     const logoutHandler = () => {
         document.cookie = `x-auth-token= ;expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
-        localStorage.clear();
-       setUser();
+        clearUserData();
+        setUser();
     };
 
 
