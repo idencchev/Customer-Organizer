@@ -1,6 +1,5 @@
 import React from "react";
-import { getUserData } from "../../api/localStorageSetup.js";
-import { useUserStateValue } from "../../Context/UserStateProvider.js";
+import { useUserStateValue } from "../../Context/UserStateProvider";
 import './Home.css';
 
 function Home() {
