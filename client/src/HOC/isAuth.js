@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useUserStateValue } from '../Context/UserStateProvider.js';
 
 function IsAuth(WrappedComponent) {
     const Component = (props) => {
         
-        let userData = JSON.parse(localStorage.getItem('userData'));
         const history = useHistory();
-        
+        const [{ user }, dispatch] = useUserStateValue();
+    
         useEffect(() => {
-            if (!userData) {
+            
+            if (!user) {
                 history.push('/');
                 return null;
             }

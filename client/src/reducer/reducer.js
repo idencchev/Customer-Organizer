@@ -1,8 +1,8 @@
 import { setUserData } from "../api/localStorageSetup";
 
 export const initialState = {
-    isAuthenticated: false,
-    user: null,
+    isVerified: false,
+    username: null,
     id: null,
     isAdmin: false
 }
@@ -11,23 +11,30 @@ const reducer = (state, action) => {
 
     switch (action.type) {
         case 'LOGIN':
-            setUserData(action.payload);
             return {
                 ...state,
-                isAuthenticated: true,
-                user: action.payload.username,
-                id: action.payload._id,
+                isVerified: action.payload.isVerified,
+                username: action.payload.username,
+                id: action.payload.id,
                 isAdmin: action.payload.isAdmin
             };
 
         case 'LOGOUT':
-            localStorage.clear();
             return {
                 ...state,
-                isAuthenticated: false,
-                user: null,
+                isVerified: false,
+                username: null,
                 id: null,
-                isAdmin: null
+                isAdmin: false
+            };
+
+        case 'VERIFY':
+            return {
+                ...state,
+                isVerified: action.payload.isVerified,
+                username: action.payload.username,
+                id: action.payload.id,
+                isAdmin: action.payload.isAdmin
             };
 
         default:

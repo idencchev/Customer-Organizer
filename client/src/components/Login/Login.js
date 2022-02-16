@@ -24,14 +24,19 @@ function Login(props) {
         e.preventDefault();
         try {
 
-            const response = await loginUser(userData)
-            document.cookie = `x-auth-token = ${response.userData.token}`;
+            const response = await loginUser(userData);
+            
             dispatch({
                 type: 'LOGIN',
-                payload: response.userData
+                payload: {
+                    isVerified: true,
+                    username: response.userData.username,
+                    id: response.userData._id,
+                    isAdmin: response.userData.isAdmin
+                }
             });
-            
-           props.history.push('/');
+
+            props.history.push('/');
         } catch (error) {
             console.log(error);
         }

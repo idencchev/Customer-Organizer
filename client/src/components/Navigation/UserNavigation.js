@@ -1,20 +1,21 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useUserStateValue } from "../../Context/UserStateProvider.js";
+import { logoutUser } from "../../api/data.js";
 
 function UserNavigation() {
 
-    const [{ isAuthenticated, isAdmin }, dispatch] = useUserStateValue();
+    const [{ isVerified, isAdmin }, dispatch] = useUserStateValue();
 
     const history = useHistory();
 
-    const logoutHandler = () => {
-        document.cookie = `x-auth-token= ;expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
+    const logoutHandler = async () => {
+        await logoutUser();
         dispatch({ type: 'LOGOUT' })
         history.push('/');
     };
 
-    if (isAuthenticated) {
+    if (isVerified) {
         return (
             <div className="nav-user">
                 <Link className="my-nav-link" to="/create/appointment">ADD APPOINTMENT</Link>

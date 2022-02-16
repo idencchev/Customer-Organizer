@@ -1,21 +1,21 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { useUserStateValue } from '../Context/UserStateProvider.js';
 
 function IsAdmin(WrappedComponent) {
 
 
     const Component = (props) => {
 
-        let userData = JSON.parse(localStorage.getItem('userData'));
-
         const history = useHistory();
-
-        if (userData?.isAdmin === false) {
+        const [{ user, isAdmin }, dispatch] = useUserStateValue();
+console.log(isAdmin);
+        if (!isAdmin) {
             history.push('/');
             return null;
         }
 
-        if (!userData) {
+        if (!user) {
             history.push('/');
             return null;
         }

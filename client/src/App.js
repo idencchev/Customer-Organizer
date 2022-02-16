@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 import { getUserData } from "./api/localStorageSetup";
 import './App.css';
 import ActiveCars from "./components/ActiveCars/ActiveCars";
@@ -16,17 +17,24 @@ import { useUserStateValue } from "./Context/UserStateProvider";
 import IsAdmin from "./HOC/isAdmin";
 import IsAuth from "./HOC/isAuth";
 import isGuest from "./HOC/isGuest";
+import { verifyToken } from "./api/data.js";
 
 function App() {
-  const [{ }, dispatch] = useUserStateValue();
 
-  useEffect(() => {
-    const userData = getUserData();
-    if (userData) {
+  const [{ }, dispatch] = useUserStateValue();
+  const history = useHistory();
+
+  useEffect(async () => {
+
+    const verifyData = await verifyToken();
+
+    if (verifyData.isVerified) {
       dispatch({
-        type: 'LOGIN',
-        payload: userData
-      })
+        type: 'VERIFY',
+        payload: verifyData
+      });
+    } else {
+      history.push('/');
     }
   }, []);
 
@@ -34,13 +42,13 @@ function App() {
     <div className="App">
       <Header />
       <Switch>
-        <Route exact path="/user/admin" component={IsAdmin(Admin)} />
-        <Route path="/view/archive" component={IsAuth(Archive)} />
-        <Route path="/view/cars" component={IsAuth(ActiveCars)} />
-        <Route path="/create/car" component={IsAuth(AddActiveCars)} />
-        <Route path="/view/appointments" component={IsAuth(Appointments)} />
-        <Route path="/create/appointment" component={IsAuth(AddAppointment)} />
-        <Route path="/login" component={isGuest(Login)} />
+        <Route path="/user/admin" component={Admin} />
+        <Route exact path="/view/archive" component={Archive} />
+        <Route exact path="/view/cars" component={ActiveCars} />
+        <Route exact path="/create/car" component={AddActiveCars} />
+        <Route exact path="/view/appointments" component={Appointments} />
+        <Route exact path="/create/appointment" component={AddAppointment} />
+        <Route path="/login" component={Login} />
         <Route path="/" component={Home} />
       </Switch>
       <Footer />

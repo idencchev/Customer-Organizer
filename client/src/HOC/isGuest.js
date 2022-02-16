@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useUserStateValue } from '../Context/UserStateProvider.js';
 
 function isGuest(WrappedComponent) {
-    const Component = (props) => {        
-        const history = useHistory();
+    const Component = (props) => {
         
+        const history = useHistory();
+        const [{ user }, dispatch] = useUserStateValue();
+
         useEffect(() => {
-            let userData = JSON.parse(localStorage.getItem('userData'));
-            
-            if (userData) {
+            if (user) {
                 history.push('/');
                 return null;
             }
