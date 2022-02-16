@@ -25,15 +25,24 @@ function App() {
   const history = useHistory();
 
   useEffect(async () => {
-
     const verifyData = await verifyToken();
+
+    const path = history.location.pathname;
 
     if (verifyData.isVerified) {
       dispatch({
         type: 'VERIFY',
         payload: verifyData
       });
+
+      if (path === '/login' || path === '/user/admin') {
+        return history.push('/');
+      }
+
     } else {
+      if (path === '/login') {
+        return history.push(path);
+      }
       history.push('/');
     }
   }, []);
