@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from "react-router-dom";
 
-import { StateProvider } from './Context/StateProvider';
+import { StateProvider } from './Context/UserStateProvider';
 import reducer, { initialState } from './reducer/reducer';
 
 

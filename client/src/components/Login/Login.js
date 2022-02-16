@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { loginUser } from "../../api/data.js";
-import { useStateValue } from "../../Context/StateProvider.js";
+import { loginUser } from "../../api/data";
+import { useUserStateValue } from "../../Context/UserStateProvider";
 import './Login.css';
-
-
 
 function Login(props) {
 
-    const [{ user }, dispatch] = useStateValue();
+    const [{ }, dispatch] = useUserStateValue();
 
     const [userData, setUserData] = useState({
         username: "",
@@ -29,22 +27,15 @@ function Login(props) {
             const response = await loginUser(userData)
             document.cookie = `x-auth-token = ${response.userData.token}`;
             dispatch({
-                type: 'ADD_USER',
-                item: {
-                    username: response.userData.username,
-                    isAdmin: response.userData.isAdmin,
-                    id: response.userData._id,
-                }
+                type: 'LOGIN',
+                payload: response.userData
             });
-
-           window.location.href = '/';
-          //  props.history.push('/');
-
+            
+           props.history.push('/');
         } catch (error) {
             console.log(error);
         }
     }
-
 
     return (
         <div className="login">
@@ -61,7 +52,6 @@ function Login(props) {
                 </div>
             </form>
         </div>
-
     )
 }
 export default Login;

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { createAppointment } from "../../api/data.js";
-import { getUserData } from "../../api/localStorageSetup.js";
+import { createAppointment } from "../../api/data";
 import './AddAppointment.css'
 
 function AddAppointment(props) {

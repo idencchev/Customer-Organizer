@@ -7,5 +7,5 @@ export function setUserData(data) {
 }
 
 export function clearUserData() {
-    localStorage.removeItem('userData');
+    localStorage.clear();
 }
