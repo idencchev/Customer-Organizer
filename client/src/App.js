@@ -35,7 +35,7 @@ function App() {
         payload: verifyData
       });
 
-      if (path === '/login' || path === '/user/admin') {
+      if (path === '/login' || verifyData.isAdmin === false) {
         return history.push('/');
       }
 

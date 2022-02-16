@@ -1,5 +1,3 @@
-import { setUserData } from "../api/localStorageSetup";
-
 export const initialState = {
     isVerified: false,
     username: null,
