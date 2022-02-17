@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { addAppointment, getAllAppointments, deleteAppointment, editAppointment } = require('../services/appointmentService.js');
+const { addAppointment, getAllAppointments, deleteAppointment, editAppointment, getAppointmentById } = require('../services/appointmentService.js');
 const { isAuthenticated, isAdmin } = require('../middlewares/auth');
 
 router.post('/create',  isAuthenticated, async (req, res) => {
@@ -18,6 +18,18 @@ router.get('/', isAuthenticated, async (req, res) => {
   try {
 
     const appointmentsData = await getAllAppointments(req.body);
+    res.status(200).json(appointmentsData);
+
+  } catch (error) {
+    return res.status(409).json({ error });
+  }
+
+});
+
+router.get('/:id', isAuthenticated, async (req, res) => {
+  try {
+
+    const appointmentsData = await getAppointmentById(req.params.id);
     res.status(200).json(appointmentsData);
 
   } catch (error) {

@@ -11,6 +11,10 @@ async function getAllAppointments() {
     return await Appointment.find();
 }
 
+async function getAppointmentById(id) {
+    return await Appointment.findById(id);
+}
+
 async function deleteAppointment(id) {
     return await Appointment.findByIdAndDelete({ _id: id });
 }
@@ -23,5 +27,6 @@ module.exports = {
     addAppointment,
     getAllAppointments,
     deleteAppointment,
-    editAppointment
+    editAppointment,
+    getAppointmentById
 }

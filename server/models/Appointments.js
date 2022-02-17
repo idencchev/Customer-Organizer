@@ -29,7 +29,7 @@ const appointmentsSchema = new mongoose.Schema({
         required: [true, errorMsg.PHONE_REQUIRED]
     },
     createdBy: {
-        type: mongoose.Types.ObjectId
+        type: String
     }
 });
 

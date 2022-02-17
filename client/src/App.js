@@ -3,7 +3,7 @@ import { Route, Switch, useHistory } from "react-router-dom";
 import './App.css';
 import ActiveCars from "./components/ActiveCars/ActiveCars";
 import AddActiveCars from "./components/AddActiveCars/AddActiveCars";
-import AddAppointment from "./components/AddAppointment/AddAppointment";
+import AddAppointment from "./components/Appointments/AddAppointment/AddAppointment";
 import Admin from "./components/Admin/Admin";
 import Appointments from "./components/Appointments/Appointments";
 import Archive from "./components/Archive/Archive";
@@ -12,7 +12,8 @@ import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from "./components/Login/Login";
 import { useUserStateValue } from "./Context/UserStateProvider";
-import { verifyToken } from "./api/data.js";
+import { verifyToken } from "./api/data";
+import EditAppointment from "./components/Appointments/EditAppointment/EditAppointment";
 
 function App() {
 
@@ -57,6 +58,7 @@ function App() {
         <Route exact path="/create/car" component={AddActiveCars} />
         <Route exact path="/view/appointments" component={Appointments} />
         <Route exact path="/create/appointment" component={AddAppointment} />
+        <Route exact path="/edit/appointments/:id" component={EditAppointment} />
         <Route path="/login" component={Login} />
         <Route path="/" component={Home} />
       </Switch>

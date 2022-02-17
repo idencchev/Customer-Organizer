@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { createAppointment } from "../../api/data";
+import { createAppointment } from "../../../api/data";
+import { useUserStateValue } from "../../../Context/UserStateProvider";
 import './AddAppointment.css'
 
 function AddAppointment(props) {
 
     const [appointmentData, setAppointmentData] = useState();
+    const [{ username }] = useUserStateValue();
 
     const onAddAppointmentHandler = (e) => {
         setAppointmentData((prevAppointmentData) => ({
@@ -16,6 +18,7 @@ function AddAppointment(props) {
     const createAppointmentHandler = async (e) => {
         e.preventDefault();
         try {
+            appointmentData['createdBy'] = username;
             await createAppointment(appointmentData);
             props.history.push('/view/appointments');
         } catch (error) {
