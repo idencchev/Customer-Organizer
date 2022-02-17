@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
-import jwt_decode from "jwt-decode";
-import { getUserData } from "./api/localStorageSetup";
 import './App.css';
 import ActiveCars from "./components/ActiveCars/ActiveCars";
 import AddActiveCars from "./components/AddActiveCars/AddActiveCars";
@@ -14,9 +12,6 @@ import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from "./components/Login/Login";
 import { useUserStateValue } from "./Context/UserStateProvider";
-import IsAdmin from "./HOC/isAdmin";
-import IsAuth from "./HOC/isAuth";
-import isGuest from "./HOC/isGuest";
 import { verifyToken } from "./api/data.js";
 
 function App() {
@@ -35,7 +30,12 @@ function App() {
         payload: verifyData
       });
 
-      if (path === '/login' || verifyData.isAdmin === false) {
+      // Temporally route protection
+      if (path === '/login') {
+        return history.push('/');
+      }
+
+      if (path === '/user/admin' && verifyData.isAdmin === false) {
         return history.push('/');
       }
 
@@ -43,7 +43,7 @@ function App() {
       if (path === '/login') {
         return history.push(path);
       }
-      history.push('/');
+      return history.push('/');
     }
   }, []);
 

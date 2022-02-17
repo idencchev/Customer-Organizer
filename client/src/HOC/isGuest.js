@@ -6,10 +6,10 @@ function isGuest(WrappedComponent) {
     const Component = (props) => {
         
         const history = useHistory();
-        const [{ user }, dispatch] = useUserStateValue();
+        const [{ isVerified }, dispatch] = useUserStateValue();
 
         useEffect(() => {
-            if (user) {
+            if (isVerified) {
                 history.push('/');
                 return null;
             }

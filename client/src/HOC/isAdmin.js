@@ -8,14 +8,9 @@ function IsAdmin(WrappedComponent) {
     const Component = (props) => {
 
         const history = useHistory();
-        const [{ user, isAdmin }, dispatch] = useUserStateValue();
-console.log(isAdmin);
-        if (!isAdmin) {
-            history.push('/');
-            return null;
-        }
+        const [{ isAdmin }, dispatch] = useUserStateValue();
 
-        if (!user) {
+        if (!isAdmin) {
             history.push('/');
             return null;
         }
