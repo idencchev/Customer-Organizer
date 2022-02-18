@@ -3,7 +3,7 @@ import './AddActiveCars.css'
 
 function AddActiveCars() {
     return (
-        <div className="add-appointment">AddActiveCars page</div>
+        <div className="add-active-cars">AddActiveCars page</div>
     );
 }
 

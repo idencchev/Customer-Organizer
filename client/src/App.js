@@ -56,6 +56,7 @@ function App() {
         <Route exact path="/view/archive" component={Archive} />
         <Route exact path="/view/cars" component={ActiveCars} />
         <Route exact path="/create/car" component={AddActiveCars} />
+        <Route exact path="/create/car/:id" component={AddActiveCars} />
         <Route exact path="/view/appointments" component={Appointments} />
         <Route exact path="/create/appointment" component={AddAppointment} />
         <Route exact path="/edit/appointments/:id" component={EditAppointment} />
