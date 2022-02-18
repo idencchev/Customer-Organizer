@@ -5,8 +5,7 @@ function AppointmentFormComponent({ appointmentData, onSubmitHandler, onChangeHa
 
     return (
         <div className="add-appointment">
-            <form onSubmit={onSubmitHandler}>
-                <div className="container-add-appointment">
+            <form className="add-appointment-form"onSubmit={onSubmitHandler}>
                     <label htmlFor="appointmentDate"><b>APPOINTMENT DATE</b></label>
                     <input onChange={onChangeHandler} type="text" placeholder="Example: 12.02.2022" name="appointmentDate" required defaultValue={appointmentData?.appointmentDate} />
 
@@ -31,7 +30,6 @@ function AppointmentFormComponent({ appointmentData, onSubmitHandler, onChangeHa
                     <input onChange={onChangeHandler} type="text" placeholder="Example: 07834205874" name="ownerPhone" defaultValue={appointmentData?.ownerPhone} />
 
                     <button className="btn-submit" type="submit">{appointmentData ? 'EDIT' : 'BOOK'}</button>
-                </div>
             </form>
         </div>
     );

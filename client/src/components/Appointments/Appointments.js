@@ -15,7 +15,6 @@ function Appointments() {
     const appointmentsPerPage = 4;
     const pagesVisited = pageNumber * appointmentsPerPage;
 
-
     useEffect(async () => {
         const data = await getAppointments();
         setAppointments(data);
@@ -49,7 +48,6 @@ function Appointments() {
         });
 
     const pageCount = Math.ceil(appointments.length / appointmentsPerPage);
-
 
     const changePage = ({ selected }) => {
         setPageNumber(selected);

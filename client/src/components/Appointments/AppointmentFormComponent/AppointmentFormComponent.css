@@ -3,14 +3,6 @@
     justify-content: space-around;
 }
 
-.container-add-appointment {
-    padding: 16px;
-    background: #131921;
-    border: 3px solid rgb(254, 153, 0);
-    border-radius: 10px;
-    text-align: center;
-}
-
 label {
     padding: 18px 0px 3px 0;
     display: inline-block;
@@ -21,6 +13,28 @@ label {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
+    border: 3px solid rgb(254, 153, 0);
+    box-sizing: border-box;
+    justify-content: center;
+    border-radius: inherit;
+}
+
+.add-appointment-form {
+    color: rgb(254, 153, 0);
+    padding: 11px;
+    background: #131921;
+    border: 3px solid rgb(254, 153, 0);
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+.add-appointment-form input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 4px 0;
+    display: flex;
     border: 3px solid rgb(254, 153, 0);
     box-sizing: border-box;
     justify-content: center;

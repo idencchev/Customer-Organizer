@@ -25,7 +25,7 @@ function Login(props) {
         try {
 
             const response = await loginUser(userData);
-            
+
             dispatch({
                 type: 'LOGIN',
                 payload: {
@@ -44,17 +44,15 @@ function Login(props) {
 
     return (
         <div className="login">
-            <form onSubmit={onLoginHandler}>
-                <div className="container">
-                    <label htmlFor="uname"><b>USERNAME</b></label>
-                    <input onChange={onChangeHandler} type="text" placeholder="Enter Username" name="username" required />
+            <form className='login-form' onSubmit={onLoginHandler}>
+                <h1 className="login-h1">LOGIN</h1>
+                <label htmlFor="uname"><b>USERNAME</b></label>
+                <input onChange={onChangeHandler} type="text" placeholder="Enter Username" name="username" required />
 
-                    <label htmlFor="psw"><b>PASSWORD</b></label>
-                    <input onChange={onChangeHandler} type="password" placeholder="Enter Password" name="password" required />
+                <label htmlFor="psw"><b>PASSWORD</b></label>
+                <input onChange={onChangeHandler} type="password" placeholder="Enter Password" name="password" required />
 
-                    <button className="btn-submit" type="submit">LOGIN</button>
-
-                </div>
+                <button className="btn-submit" type="submit">LOGIN</button>
             </form>
         </div>
     )
