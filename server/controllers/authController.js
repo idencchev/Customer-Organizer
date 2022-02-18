@@ -7,7 +7,7 @@ const { registerUser, loginUser, deleteUser, getAllUsers } = require('../service
 router.post('/register', [isAuthenticated, isAdmin], async (req, res) => {
     try {
         const userData = await registerUser(req.body);
-        res.status(201).json({ message: `${userData.username} has been created successfully.` });
+        res.status(201).json({ userData, message: `${userData.username} has been created successfully.` });
 
     } catch (error) {
         return res.status(409).json({ error });

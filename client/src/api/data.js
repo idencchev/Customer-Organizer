@@ -2,6 +2,9 @@ import * as api from './api.js';
 
 const endpoints = {
     login: '/api/auth/login',
+    register: '/api/auth/register',
+    getAllUsers: '/api/auth/users',
+    deleteUser: (id) => `/api/auth/users/${id}`,
     logout: '/api/auth/logout',
     createAppointment: '/api/appointments/create',
     getAppointment: '/api/appointments',
@@ -14,6 +17,33 @@ const endpoints = {
 export async function loginUser(data) {
     try {
         const response = await api.post(endpoints.login, data);
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export async function registerUser(data) {
+    try {
+        const response = await api.post(endpoints.register, data);
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export async function getUsers() {
+    try {
+        const response = await api.get(endpoints.getAllUsers);
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export async function deleteUser(id) {
+    try {
+        const response = await api.del(endpoints.deleteUser(id));
         return response;
     } catch (error) {
         throw error;

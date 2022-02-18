@@ -5,7 +5,7 @@ const User = require('../models/User');
 const { JWT_SECRET } = require('../config/config');
 
 async function registerUser(data) {
-    let checkUsername = await User.findOne({ username: data.username });
+    const checkUsername = await User.findOne({ username: data.username });
 
     if (checkUsername) {
         throw 'This username is already taken!';
@@ -15,8 +15,9 @@ async function registerUser(data) {
         throw 'Passwords are not same!';
     }
 
-    let user = new User({ username: data.username.toLowerCase().trim(), password: data.password.trim(), isAdmin: false });
-    return await user.save();
+    const user = new User({ username: data.username.toLowerCase().trim(), password: data.password.trim(), isAdmin: data.isAdmin });
+    const { username, isAdmin, _id } = await user.save();
+    return { username, isAdmin, _id }
 }
 
 async function loginUser(data) {
@@ -49,7 +50,13 @@ async function deleteUser(id) {
 }
 
 async function getAllUsers() {
-    return await User.find();
+    const data = await User.find();
+
+    return data
+        .sort((a, b) => a.username.localeCompare(b.username))
+        .map(x => {
+            return { _id: x._id, username: x.username, isAdmin: x.isAdmin };
+        });
 }
 
 module.exports = {

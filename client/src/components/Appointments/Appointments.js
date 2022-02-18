@@ -19,13 +19,12 @@ function Appointments() {
     useEffect(async () => {
         const data = await getAppointments();
         setAppointments(data);
-
     }, []);
 
     const onDeleteAppointment = async (id) => {
         try {
             await deleteAppointment(id);
-            setAppointments(appointments.filter(appointment => appointment._id !== id))
+            setAppointments(appointments.filter(appointment => appointment._id !== id));
         } catch (error) {
             console.log(error);
         }

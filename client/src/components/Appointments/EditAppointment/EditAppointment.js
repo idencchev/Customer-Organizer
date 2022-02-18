@@ -19,7 +19,7 @@ function EditAppointment(props) {
     const id = props.history.location.pathname.split("/").pop();
 
     useEffect(async () => {
-        const { appointmentDate, plateNumber, carMakeAndModel, ownerName, notes, ownerPhone, createdBy } = await getAppointmentById(id);
+        const { appointmentDate, plateNumber, carMakeAndModel, ownerName, notes, ownerPhone } = await getAppointmentById(id);
         setAppointmentData({
             appointmentDate: appointmentDate,
             plateNumber: plateNumber,

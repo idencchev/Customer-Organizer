@@ -1,3 +1,7 @@
-.add-appointment{
+.admin{
     color: white;
+}
+
+.btn-delete-user{
+    cursor: pointer;
 }

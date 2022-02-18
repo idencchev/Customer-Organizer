@@ -25,6 +25,7 @@ function AppointmentComponent({
             <p>Owner's Phone: {ownerPhone}</p>
             <h4>Booked by: {createdBy}</h4>
             <Link className="edit-appointment" to={`/edit/appointments/${id}`}>Edit</Link>
+            <Link className="edit-appointment" to={`/edit/appointments/${id}`}>Move to Garrage</Link>
             {isAdmin ? <button onClick={() => onDelete(id)} className="delete-appointment">Delete</button> : null}
         </div>
     );
