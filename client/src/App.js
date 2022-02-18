@@ -3,7 +3,7 @@ import { Route, Switch, useHistory } from "react-router-dom";
 import './App.css';
 import ActiveCars from "./components/ActiveCars/ActiveCars";
 import AddActiveCars from "./components/AddActiveCars/AddActiveCars";
-import AddAppointment from "./components/Appointments/AddAppointment/AddAppointment";
+import AddAppointment from "./components/Appointments/AddAppointment";
 import Admin from "./components/Admin/Admin";
 import Appointments from "./components/Appointments/Appointments";
 import Archive from "./components/Archive/Archive";
@@ -13,7 +13,7 @@ import Home from './components/Home/Home';
 import Login from "./components/Login/Login";
 import { useUserStateValue } from "./Context/UserStateProvider";
 import { verifyToken } from "./api/data";
-import EditAppointment from "./components/Appointments/EditAppointment/EditAppointment";
+import EditAppointment from "./components/Appointments/EditAppointment";
 
 function App() {
 

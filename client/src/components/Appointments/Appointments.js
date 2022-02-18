@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import { deleteAppointment, editAppointment, getAppointments } from "../../api/data";
+import { deleteAppointment, getAppointments } from "../../api/data";
 import { useUserStateValue } from "../../Context/UserStateProvider";
 import AppointmentComponent from './AppointmentComponent/AppointmentComponent'
 import './Appointments.css'
