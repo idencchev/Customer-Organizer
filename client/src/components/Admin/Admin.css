@@ -1,7 +1,114 @@
-.admin{
+.admin {
     color: white;
+    display: flex;
+    justify-content: space-around;
 }
 
-.btn-delete-user{
+.btn-delete-user {
+    color: #131921;
+    background-color: rgb(254, 153, 0);
+    padding: 2px 10px;
+    border-radius: 26px;
+    border: solid 3px transparent;
+    transition: background-color 0.3s;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.btn-delete-user:hover {
     cursor: pointer;
+    background-color: #131921;
+    color: rgb(254, 153, 0);
+    border: solid 3px rgb(254, 153, 0);
+}
+
+.register-form {
+    color: rgb(254, 153, 0);
+    background: #131921;
+    border: 3px solid rgb(254, 153, 0);
+    border-radius: 10px;
+    text-align: center;
+    margin: 60px 0px 0px 0px;
+    padding: 20px;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: flex;
+    border: 3px solid rgb(254, 153, 0);
+    box-sizing: border-box;
+    justify-content: center;
+    border-radius: inherit;
+}
+
+.btn-submit-create {
+    background-color: rgb(254, 153, 0);
+    color: #131921;
+    padding: 14px 20px;
+    margin: 8px 0;
+    cursor: pointer;
+    width: 55%;
+    border-radius: 26px;
+    font-weight: bold;
+    border: 3px solid transparent;
+    transition: background-color 0.3s;
+}
+
+.btn-submit-create:hover {
+    opacity: 0.9;
+    background-color: #131921;
+    color: rgb(254, 153, 0);
+    border: 3px solid rgb(254, 153, 0);
+}
+
+
+input[type="checkbox"] {
+    background-color: #fafafa;
+    border: 1px solid #cacece;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 5%), inset 0px -15px 10px -12px rgb(0 0 0 / 5%);
+    padding: 10px;
+    border-radius: 3px;
+    display: inline-block;
+    position: relative;
+    transform: scale(1.3);
+    margin-left: 15px;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #e9ecee;
+    border: 1px solid #adb8c0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+    color: #99a1a7;
+}
+
+.label-isAdmin {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.user-list-div {
+    margin: 20px 0px 0px 0px;
+    padding: 20px;
+    width: 25%;
+}
+
+.user-list-ul {
+    list-style-type: none;
+}
+
+.user-list-h2 {
+    text-align: center;
+    color: rgb(254, 153, 0);
+    font-weight: bold;
+}
+
+.user-list-li {
+    font-size: 22px;
+    font-weight: bold;
+    padding: 5px;
+    color: rgb(254, 153, 0);
+    display: flex;
+    justify-content: space-between;
 }
