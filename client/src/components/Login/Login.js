@@ -52,7 +52,7 @@ function Login(props) {
                 <label htmlFor="psw"><b>PASSWORD</b></label>
                 <input onChange={onChangeHandler} type="password" placeholder="Enter Password" name="password" required />
 
-                <button className="btn-submit" type="submit">LOGIN</button>
+                <button className="btn-submit-login" type="submit">LOGIN</button>
             </form>
         </div>
     )

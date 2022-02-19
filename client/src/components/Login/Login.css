@@ -24,8 +24,7 @@ input[type=text], input[type=password] {
   border-radius: inherit;
 }
 
-/* Set a style for all buttons */
-.btn-submit {
+.btn-submit-login {
   background-color: rgb(254, 153, 0);
   color: #131921;
   padding: 14px 20px;
@@ -38,8 +37,7 @@ input[type=text], input[type=password] {
   border: 3px solid transparent;
 }
 
-/* Add a hover effect for buttons */
-button:hover {
+.btn-submit-login:hover {
   opacity: 0.9;
   background-color: #131921;
   color: rgb(254, 153, 0);
