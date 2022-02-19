@@ -29,7 +29,7 @@ function AppointmentFormComponent({ appointmentData, onSubmitHandler, onChangeHa
                     <label htmlFor="ownerPhone"><b>OWNER'S PHONE</b></label>
                     <input onChange={onChangeHandler} type="text" placeholder="Example: 07834205874" name="ownerPhone" defaultValue={appointmentData?.ownerPhone} />
 
-                    <button className="btn-submit" type="submit">{appointmentData ? 'EDIT' : 'BOOK'}</button>
+                    <button className="btn-submit-edit-app" type="submit">{appointmentData ? 'EDIT' : 'BOOK'}</button>
             </form>
         </div>
     );

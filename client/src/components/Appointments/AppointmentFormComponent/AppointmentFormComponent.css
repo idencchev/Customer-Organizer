@@ -3,11 +3,6 @@
     justify-content: space-around;
 }
 
-label {
-    padding: 18px 0px 3px 0;
-    display: inline-block;
-}
-
 .textarea-notes {
     display: block;
     width: 100%;
@@ -39,3 +34,24 @@ label {
     justify-content: center;
     border-radius: inherit;
 }
+
+.btn-submit-edit-app {
+    background-color: rgb(254, 153, 0);
+    color: #131921;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 45%;
+    border-radius: 26px;
+    font-weight: bold;
+    border: 3px solid transparent;
+  }
+
+  .btn-submit-edit-app:hover {
+    opacity: 0.9;
+    background-color: #131921;
+    color: rgb(254, 153, 0);
+    border: 3px solid rgb(254, 153, 0);
+    transition: background-color 0.3s;
+  }
