@@ -20,7 +20,8 @@ async function deleteAppointment(id) {
 }
 
 async function editAppointment(id, appointment) {
-    return await Appointment.findOneAndUpdate(id, appointment, { new: true });
+    console.log(id, appointment);
+    return await Appointment.findOneAndUpdate({ _id: id }, appointment);
 }
 
 module.exports = {
