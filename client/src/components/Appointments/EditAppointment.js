@@ -43,7 +43,7 @@ function EditAppointment(props) {
         e.preventDefault();
         try {
             await editAppointment(id, appointmentData);
-            props.history.push('/view/appointments');
+            props.history.push('/view/scheduler');
         } catch (error) {
             console.log(error);
         }

@@ -20,6 +20,7 @@ function UserNavigation() {
             <div className="nav-user">
                 <Link className="my-nav-link" to="/create/appointment">ADD APPOINTMENT</Link>
                 <Link className="my-nav-link" to="/view/appointments">APPOINTMENTS</Link>
+                <Link className="my-nav-link" to="/view/scheduler">SCHEDULER</Link>
                 <Link className="my-nav-link" to="/create/car">ADD TO GARAGE</Link>
                 <Link className="my-nav-link" to="/view/cars">GARAGE</Link>
                 <Link className="my-nav-link" to="/view/archive">ARCHIVE</Link>

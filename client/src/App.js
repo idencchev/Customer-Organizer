@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 import './App.css';
 import ActiveCars from "./components/ActiveCars/ActiveCars";
@@ -14,9 +14,9 @@ import Login from "./components/Login/Login";
 import { useUserStateValue } from "./Context/UserStateProvider";
 import { verifyToken } from "./api/data";
 import EditAppointment from "./components/Appointments/EditAppointment";
+import AppointmentsScheduler from "./components/Scheduler/Scheduler";
 
 function App() {
-
   const [{ }, dispatch] = useUserStateValue();
   const history = useHistory();
 
@@ -58,6 +58,7 @@ function App() {
         <Route exact path="/create/car" component={AddActiveCars} />
         <Route exact path="/create/car/:id" component={AddActiveCars} />
         <Route exact path="/view/appointments" component={Appointments} />
+        <Route exact path="/view/scheduler" component={AppointmentsScheduler} />
         <Route exact path="/create/appointment" component={AddAppointment} />
         <Route exact path="/edit/appointments/:id" component={EditAppointment} />
         <Route path="/login" component={Login} />

@@ -7,7 +7,7 @@ function AppointmentFormComponent({ appointmentData, onSubmitHandler, onChangeHa
         <div className="add-appointment">
             <form className="add-appointment-form"onSubmit={onSubmitHandler}>
                     <label htmlFor="appointmentDate"><b>APPOINTMENT DATE</b></label>
-                    <input onChange={onChangeHandler} type="text" placeholder="Example: 12.02.2022" name="appointmentDate" required defaultValue={appointmentData?.appointmentDate} />
+                    <input onChange={onChangeHandler} type="date" name="appointmentDate" required defaultValue={appointmentData?.appointmentDate} />
 
                     <label htmlFor="plateNumber"><b>PLATE NUMBER</b></label>
                     <input onChange={onChangeHandler} type="text" placeholder="Example: RZ21PRG" name="plateNumber" defaultValue={appointmentData?.plateNumber} />

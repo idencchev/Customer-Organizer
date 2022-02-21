@@ -35,6 +35,17 @@
     border-radius: inherit;
 }
 
+.add-appointment-form input[type=date] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 4px 0;
+    display: flex;
+    border: 3px solid rgb(254, 153, 0);
+    box-sizing: border-box;
+    justify-content: center;
+    border-radius: inherit;
+}
+
 .btn-submit-edit-app {
     background-color: rgb(254, 153, 0);
     color: #131921;

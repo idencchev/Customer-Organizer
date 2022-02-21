@@ -17,7 +17,7 @@ function AppointmentComponent({
 
     return (
         <div className="appointment-component">
-            <h1>Date: {appointmentDate}</h1>
+            <h1>Date: {appointmentDate.split('-').reverse().join('/')}</h1>
             <p>Plate Number: {plateNumber}</p>
             <p>Car Make And Model: {carMakeAndModel}</p>
             <p className="notes">Notes: {notes} </p>

@@ -2,13 +2,15 @@ const Appointment = require('../models/Appointments');
 
 
 async function addAppointment(appointmentData) {
-    let appointment = new Appointment(appointmentData);
+    const appointment = new Appointment(appointmentData);
     return await appointment.save();
 
 }
 
 async function getAllAppointments() {
-    return await Appointment.find();
+    const result = await Appointment.find();
+
+    return result.sort((a, b) => a.appointmentDate.localeCompare(b.appointmentDate));
 }
 
 async function getAppointmentById(id) {
@@ -20,7 +22,6 @@ async function deleteAppointment(id) {
 }
 
 async function editAppointment(id, appointment) {
-    console.log(id, appointment);
     return await Appointment.findOneAndUpdate({ _id: id }, appointment);
 }
 
