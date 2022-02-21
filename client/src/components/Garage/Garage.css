@@ -1,3 +1,39 @@
-.add-appointment{
-    color: white;
+.view-cars{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.paginationBttns {
+    width: 80%;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin: 30px 0px 20px 0px;
+}
+
+.paginationBttns a {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 2px solid rgb(254, 153, 0);
+    color: rgb(254, 153, 0);
+    cursor: pointer;
+}
+
+.paginationBttns a:hover {
+    color: #131921;
+    background-color: rgb(254, 153, 0);
+}
+
+.paginationActive a {
+    color: #131921;
+    background-color: rgb(254, 153, 0);
+}
+
+
+.paginationDisabled a {
+    color: #131921;
+    background-color: rgb(254, 153, 0);
 }

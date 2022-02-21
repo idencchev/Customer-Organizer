@@ -1,0 +1,67 @@
+.car-container {
+    width: 500px;
+    border-radius: 12px;
+    color: rgb(254, 153, 0);
+    box-shadow: rgba(254, 153, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.car-container .title {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.car-component .footer {
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-car {
+    text-decoration: none;
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 2px solid rgb(254, 153, 0);
+    color: rgb(254, 153, 0);
+    cursor: pointer;
+    background-color: #131921;
+    font-weight: bold;
+}
+
+.delete-car {
+    padding: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    border: 2px solid rgb(254, 153, 0);
+    color: rgb(254, 153, 0);
+    cursor: pointer;
+    background-color: #131921;
+    font-weight: bold;
+}
+
+.delete-car:hover {
+    color: #131921;
+    background-color: rgb(254, 153, 0);
+}
+
+.edit-car:hover {
+    color: #131921;
+    background-color: rgb(254, 153, 0);
+}
+
+.car-span {
+    color: white;
+}
+
+.car-span p {
+    font-size: 18px;
+}

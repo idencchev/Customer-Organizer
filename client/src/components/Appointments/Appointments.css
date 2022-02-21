@@ -5,38 +5,3 @@
     justify-content: center;
 }
 
-.paginationBttns {
-    width: 80%;
-    height: 40px;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    font-weight: bold;
-    padding: 35px;
-    margin-top: 135px;
-}
-
-.paginationBttns a {
-    padding: 10px;
-    margin: 8px;
-    border-radius: 5px;
-    border: 2px solid rgb(254, 153, 0);
-    color: rgb(254, 153, 0);
-    cursor: pointer;
-}
-
-.paginationBttns a:hover {
-    color: #131921;
-    background-color: rgb(254, 153, 0);
-}
-
-.paginationActive a {
-    color: #131921;
-    background-color: rgb(254, 153, 0);
-}
-
-
-.paginationDisabled a {
-    color: #131921;
-    background-color: rgb(254, 153, 0);
-}

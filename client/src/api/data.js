@@ -12,7 +12,13 @@ const endpoints = {
     editAppointment: (id) => `/api/appointments/${id}`,
     deleteAppointment: (id) => `/api/appointments/${id}`,
     verify: '/api/auth/verify',
-    createCar: '/api/garage/create'
+    createCar: '/api/garage/create',
+    getCar: (id) => `/api/garage/${id}`,
+    getAllCars: '/api/garage',
+    deleteCar: (id) => `/api/garage/${id}`,
+    editCar: (id) => `/api/garage/${id}`,
+    archive: '/api/garage/archive',
+    move: (id) => `/api/garage/move/${id}`
 }
 
 export async function loginUser(data) {
@@ -117,6 +123,60 @@ export async function verifyToken() {
 export async function createCarInGarage(data) {
     try {
         const response = await api.post(endpoints.createCar, data);
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export async function getCarById(id) {
+    try {
+        const response = await api.get(endpoints.getCar(id));
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export async function getAllCars() {
+    try {
+        const response = await api.get(endpoints.getAllCars);
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export async function deleteCar(id) {
+    try {
+        const response = await api.del(endpoints.deleteCar(id));
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export async function editCar(id, data) {
+    try {
+        const response = await api.put(endpoints.editCar(id), data);
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export async function getArchive() {
+    try {
+        const response = await api.get(endpoints.archive);
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export async function moveToArchive(id) {
+    try {
+        const response = await api.put(endpoints.move(id));
         return response;
     } catch (error) {
         throw error;

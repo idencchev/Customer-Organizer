@@ -1,13 +1,13 @@
 import React from 'react';
 import './CarsFormComponent.css';
 
-function CarsFormComponent({ carData, onSubmitHandler, onChangeHandler }) {
+function CarsFormComponent({ carData, onSubmitHandler, onChangeHandler, showEditButton }) {
 
   return (
     <div className="add-car">
       <form className="add-car-form" onSubmit={onSubmitHandler}>
         <label htmlFor="garageDate">DATE</label>
-        <input onChange={onChangeHandler} type="date" name="garageDate" defaultValue={carData ? carData['garageDate'] = carData.appointmentDate : carData?.garageDate} />
+        <input onChange={onChangeHandler} type="date" name="garageDate" defaultValue={carData?.garageDate} />
 
         <label htmlFor="plateNumber">PLATE NUMBER</label>
         <input onChange={onChangeHandler} type="text" placeholder="Example: RZ21PRG" name="plateNumber" defaultValue={carData?.plateNumber} />
@@ -40,7 +40,7 @@ function CarsFormComponent({ carData, onSubmitHandler, onChangeHandler }) {
         <label htmlFor="mechanicName">MECHANIC</label>
         <input onChange={onChangeHandler} type="text" placeholder="Example: Viktor" name="mechanicName" defaultValue={carData?.mechanicName} />
 
-        <button className="btn-submit-edit-app" type="submit">{carData ? 'MOVE' : 'CREATE'}</button>
+        <button className="btn-submit-edit-app" type="submit">{showEditButton ? 'EDIT' : carData ? 'MOVE' : 'CREATE'}</button>
       </form>
     </div>
   )

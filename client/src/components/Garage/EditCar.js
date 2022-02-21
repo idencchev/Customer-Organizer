@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { createCarInGarage, deleteAppointment, getAppointmentById } from '../../api/data';
+import React, { useEffect, useState } from 'react'
+import { createCarInGarage, editCar, getCarById } from '../../api/data';
 import { useUserStateValue } from '../../Context/UserStateProvider';
 import CarsFormComponent from './CarsFormComponent/CarsFormComponent';
 
-function MoveToGarage(props) {
+function EditCar(props) {
 
     const [{ username }] = useUserStateValue();
-
+    const [showEditButton, setEditButton] = useState(true);
     const [carData, setCarData] = useState({
+        id: null,
         garageDate: null,
         plateNumber: null,
         carMakeAndModel: null,
@@ -22,16 +23,19 @@ function MoveToGarage(props) {
     const id = props.history.location.pathname.split("/").pop();
 
     useEffect(async () => {
-        const { appointmentDate, plateNumber, carMakeAndModel, ownerName, notes, ownerPhone } = await getAppointmentById(id);
+        const { garageDate, plateNumber, carMakeAndModel, ownerName, notes, ownerPhone, jobDoneAndParts, mechanicName } = await getCarById(id);
         setCarData({
-            garageDate: appointmentDate,
+            garageDate: garageDate,
             plateNumber: plateNumber,
             carMakeAndModel: carMakeAndModel,
             ownerName: ownerName,
             notes: notes,
             ownerPhone: ownerPhone,
             createdBy: username,
-        })
+            jobDoneAndParts: jobDoneAndParts,
+            mechanicName: mechanicName
+        });
+
     }, []);
 
     const onChangeHandler = (e) => {
@@ -45,20 +49,20 @@ function MoveToGarage(props) {
         e.preventDefault();
         try {
             carData['createdBy'] = username;
-            await createCarInGarage(carData);
-            await deleteAppointment(id);
+            await editCar(id, carData);
             props.history.push('/view/garage');
         } catch (error) {
             console.log(error);
         }
-    }
+    };
 
     return (
         <CarsFormComponent
             carData={carData}
             onSubmitHandler={onSubmitHandler}
             onChangeHandler={onChangeHandler}
+            showEditButton={showEditButton}
         />
-    )
-}
-export default MoveToGarage;
+    );
+};
+export default EditCar;

@@ -1,9 +1,9 @@
 const router = require('express').Router();
 
 const { addAppointment, getAllAppointments, deleteAppointment, editAppointment, getAppointmentById } = require('../services/appointmentService.js');
-const { isAuthenticated, isAdmin } = require('../middlewares/auth');
+const { isAuthenticated } = require('../middlewares/auth');
 
-router.post('/create',  isAuthenticated, async (req, res) => {
+router.post('/create', isAuthenticated, async (req, res) => {
   try {
 
     const appointmentData = await addAppointment(req.body);
@@ -50,7 +50,7 @@ router.put('/:id', isAuthenticated, async (req, res) => {
 
 });
 
-router.delete('/:id', [isAuthenticated, isAdmin], async (req, res) => {
+router.delete('/:id', isAuthenticated, async (req, res) => {
   try {
 
     const appointmentsData = await deleteAppointment(req.params.id);

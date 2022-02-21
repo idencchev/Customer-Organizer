@@ -16,11 +16,12 @@ import AppointmentsScheduler from "./components/Scheduler/Scheduler";
 import AddToGarage from "./components/Garage/AddToGarage";
 import MoveToGarage from "./components/Garage/MoveToGarage";
 import Garage from "./components/Garage/Garage";
+import EditCar from "./components/Garage/EditCar";
 
 function App() {
   const [{ }, dispatch] = useUserStateValue();
   const history = useHistory();
-
+  
   useEffect(async () => {
     const verifyData = await verifyToken();
 
@@ -32,7 +33,6 @@ function App() {
         payload: verifyData
       });
 
-      // Temporally route protection
       if (path === '/login') {
         return history.push('/');
       }
@@ -54,10 +54,11 @@ function App() {
       <Header />
       <Switch>
         <Route path="/user/admin" component={Admin} />
-        <Route exact path="/view/archive" component={Archive} />
+        <Route exact path="/view/archive" component={Garage} />
         <Route exact path="/view/garage" component={Garage} />
         <Route exact path="/create/car" component={AddToGarage} />
         <Route exact path="/create/car/:id" component={MoveToGarage} />
+        <Route exact path="/edit/car/:id" component={EditCar} />
         <Route exact path="/view/appointments" component={Appointments} />
         <Route exact path="/view/scheduler" component={AppointmentsScheduler} />
         <Route exact path="/create/appointment" component={AddAppointment} />

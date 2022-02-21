@@ -63,7 +63,6 @@ router.put('/:id', isAuthenticated, async (req, res) => {
 
 router.delete('/:id', [isAuthenticated, isAdmin], async (req, res) => {
   try {
-
     const carData = await deleteCar(req.params.id);
     res.status(200).json({ message: `${carData.plateNumber} has been deleted!` });
 
