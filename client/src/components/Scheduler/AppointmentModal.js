@@ -32,7 +32,7 @@ function AppointmentModal({ setOpenModal,
         </div>
 
         <div className="appointment-component">
-          <p>Date: {appointmentDate.split('-').reverse().join('/')}</p>
+          <p>Date: {appointmentDate?.split('-').reverse().join('/')}</p>
           <p>Car Make And Model: {carMakeAndModel}</p>
           <p>Notes: {notes} </p>
           <p>Owner's Name: {ownerName}</p>
