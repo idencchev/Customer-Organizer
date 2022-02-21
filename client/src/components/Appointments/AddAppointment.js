@@ -20,7 +20,7 @@ function AddAppointment(props) {
         try {
             appointmentData['createdBy'] = username;
             await createAppointment(appointmentData);
-            props.history.push('/view/appointments');
+            props.history.push('/view/scheduler');
         } catch (error) {
             console.log(error);
         }

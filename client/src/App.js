@@ -5,8 +5,6 @@ import { verifyToken } from "./api/data";
 
 import AddAppointment from "./components/Appointments/AddAppointment";
 import Admin from "./components/Admin/Admin";
-import Appointments from "./components/Appointments/Appointments";
-import Archive from "./components/Archive/Archive";
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
@@ -59,7 +57,6 @@ function App() {
         <Route exact path="/create/car" component={AddToGarage} />
         <Route exact path="/create/car/:id" component={MoveToGarage} />
         <Route exact path="/edit/car/:id" component={EditCar} />
-        <Route exact path="/view/appointments" component={Appointments} />
         <Route exact path="/view/scheduler" component={AppointmentsScheduler} />
         <Route exact path="/create/appointment" component={AddAppointment} />
         <Route exact path="/edit/appointments/:id" component={EditAppointment} />
