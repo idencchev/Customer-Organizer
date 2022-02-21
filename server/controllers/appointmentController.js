@@ -17,7 +17,7 @@ router.post('/create',  isAuthenticated, async (req, res) => {
 router.get('/', isAuthenticated, async (req, res) => {
   try {
 
-    const appointmentsData = await getAllAppointments(req.body);
+    const appointmentsData = await getAllAppointments();
     res.status(200).json(appointmentsData);
 
   } catch (error) {
@@ -61,9 +61,5 @@ router.delete('/:id', [isAuthenticated, isAdmin], async (req, res) => {
   }
 
 });
-
-
-
-
 
 module.exports = router;

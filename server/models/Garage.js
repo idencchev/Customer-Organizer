@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 const errorMsg = require('../utils/errorMessages');
 
-const appointmentsSchema = new mongoose.Schema({
-    appointmentDate: {
+const garageSchema = new mongoose.Schema({
+    garageDate: {
         type: String,
-        required: [true, errorMsg.APPOINTMENTDATE_REQUIRED]
+        required: [true, errorMsg.GARAGEDATE_REQUIRED]
     },
     plateNumber: {
         type: String,
@@ -27,10 +27,19 @@ const appointmentsSchema = new mongoose.Schema({
         type: Number,
         required: [true, errorMsg.PHONE_REQUIRED]
     },
+    jobDoneAndParts: {
+        type: String
+    },
+    mechanicName: {
+        type: String
+    },
     createdBy: {
         type: String
+    },
+    archive: {
+        type: Boolean,
+        default: false
     }
 });
 
-
-module.exports = mongoose.model('Appointment', appointmentsSchema);
+module.exports = mongoose.model('Garage', garageSchema);

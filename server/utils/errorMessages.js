@@ -9,4 +9,5 @@ module.exports = {
     OWNER_REQUIRED: 'Please enter a Owner Name!',
     NOTES_REQUIRED: 'Please enter a Notes!',
     PHONE_REQUIRED: 'Please enter a Owner\'s Phone Number!',
+    GARAGEDATE_REQUIRED: 'Please enter a Garage Date!',
 }

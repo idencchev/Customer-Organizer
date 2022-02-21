@@ -40,7 +40,6 @@ router.get('/users', [isAuthenticated, isAdmin], async (req, res) => {
     }
 });
 
-
 router.post('/verify', async (req, res, next) => {
 
     let isVerified = false;

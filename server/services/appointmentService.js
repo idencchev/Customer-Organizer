@@ -1,6 +1,5 @@
 const Appointment = require('../models/Appointments');
 
-
 async function addAppointment(appointmentData) {
     const appointment = new Appointment(appointmentData);
     return await appointment.save();
