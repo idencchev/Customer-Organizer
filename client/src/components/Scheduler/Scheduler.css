@@ -58,18 +58,21 @@
 .react-calendar__month-view__days__day {
     color: rgb(254, 153, 0);
     font-weight: bold;
-    font-size: 15px;
+    font-size: 17px;
     background-color: #1c1f2b;
     border: 2px solid #343435;
     display: grid;
+    grid-template-rows: 25px;
+    grid-auto-rows: 20px;
 }
 
-.openModalBtn{
+.openModalBtn {
     text-decoration: none;
-    color: rgb(254, 153, 0);
+    color: white;
     text-transform: uppercase;
+    font-size: 14px;
 }
 
 .openModalBtn:hover {
-    color: rgb(71, 165, 28);
+    color: rgb(254, 153, 0);
 }

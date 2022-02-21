@@ -13,11 +13,9 @@
 
 .modalContainer {
   width: 500px;
-  height: 500px;
   border-radius: 12px;
   background-color: #1c1f2b;
   color: rgb(254, 153, 0);
-  ;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
@@ -30,6 +28,7 @@
   text-align: center;
   margin-top: 10px;
   text-transform: uppercase;
+  color: white;
 }
 
 .titleCloseBtn {
@@ -97,4 +96,12 @@
 .edit-appointment:hover {
   color: #131921;
   background-color: rgb(254, 153, 0);
+}
+
+.appointment-span {
+  color: white;
+}
+
+.appointment-component p {
+ font-size: 18px;
 }

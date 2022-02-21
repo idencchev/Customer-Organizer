@@ -32,12 +32,12 @@ function AppointmentModal({ setOpenModal,
         </div>
 
         <div className="appointment-component">
-          <p>Date: {appointmentDate?.split('-').reverse().join('/')}</p>
-          <p>Car Make And Model: {carMakeAndModel}</p>
-          <p>Notes: {notes} </p>
-          <p>Owner's Name: {ownerName}</p>
-          <p>Owner's Phone: {ownerPhone}</p>
-          <h4>Booked by: {createdBy}</h4>
+          <p>Date: <span className="appointment-span">{appointmentDate?.split('-').reverse().join('/')}</span> </p>
+          <p>Car Make And Model: <span className="appointment-span">{carMakeAndModel}</span></p>
+          <p>Notes: <span className="appointment-span">{notes}</span></p>
+          <p>Owner's Name: <span className="appointment-span">{ownerName}</span></p>
+          <p>Owner's Phone: <span className="appointment-span">{ownerPhone}</span></p>
+          <p>Booked by: <span className="appointment-span">{createdBy}</span></p>
         </div>
 
         <div className="footer">
