@@ -76,3 +76,39 @@
 .openModalBtn:hover {
     color: rgb(254, 153, 0);
 }
+
+.react-calendar__year-view__months__month {
+    height: 148px;
+    background-color: #1c1f2b;
+    border: 2px solid #343435;
+    color: rgb(254, 153, 0);
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.react-calendar__decade-view__years {
+    height: 553px;
+}
+
+.react-calendar__decade-view__years__year {
+    background-color: #1c1f2b;
+    border: 2px solid #343435;
+    color: rgb(254, 153, 0);
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.react-calendar__century-view__decades{
+    height: 553px;
+}
+
+.react-calendar__century-view__decades__decade{
+    background-color: #1c1f2b;
+    border: 2px solid #343435;
+    color: rgb(254, 153, 0);
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+}
