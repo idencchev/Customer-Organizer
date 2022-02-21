@@ -1,4 +1,4 @@
-.add-appointment {
+.add-car {
     display: flex;
     justify-content: space-around;
 }
@@ -14,7 +14,7 @@
     border-radius: inherit;
 }
 
-.add-appointment-form {
+.add-car-form {
     color: rgb(254, 153, 0);
     background: #131921;
     border: 3px solid rgb(254, 153, 0);
@@ -25,7 +25,7 @@
     font-weight: bold;
 }
 
-.add-appointment-form input[type=text] {
+.add-car-form input[type=text] {
     width: 100%;
     padding: 12px 20px;
     margin: 4px 0;
@@ -36,7 +36,7 @@
     border-radius: inherit;
 }
 
-.add-appointment-form input[type=date] {
+.add-car-form input[type=date] {
     width: 100%;
     padding: 12px 20px;
     margin: 4px 0;

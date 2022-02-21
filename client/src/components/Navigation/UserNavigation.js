@@ -22,7 +22,7 @@ function UserNavigation() {
                 <Link className="my-nav-link" to="/view/appointments">APPOINTMENTS</Link>
                 <Link className="my-nav-link" to="/view/scheduler">SCHEDULER</Link>
                 <Link className="my-nav-link" to="/create/car">ADD TO GARAGE</Link>
-                <Link className="my-nav-link" to="/view/cars">GARAGE</Link>
+                <Link className="my-nav-link" to="/view/garage">GARAGE</Link>
                 <Link className="my-nav-link" to="/view/archive">ARCHIVE</Link>
                 {isAdmin ? <Link className="my-nav-link" to="/user/admin">ADMIN PANEL</Link> : null}
                 <Link className="my-nav-link" to="/" onClick={logoutHandler}>LOGOUT</Link>

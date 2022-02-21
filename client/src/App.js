@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
-import './App.css';
-import ActiveCars from "./components/ActiveCars/ActiveCars";
-import AddActiveCars from "./components/AddActiveCars/AddActiveCars";
+import { useUserStateValue } from "./Context/UserStateProvider";
+import { verifyToken } from "./api/data";
+
 import AddAppointment from "./components/Appointments/AddAppointment";
 import Admin from "./components/Admin/Admin";
 import Appointments from "./components/Appointments/Appointments";
@@ -11,10 +11,11 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from "./components/Login/Login";
-import { useUserStateValue } from "./Context/UserStateProvider";
-import { verifyToken } from "./api/data";
 import EditAppointment from "./components/Appointments/EditAppointment";
 import AppointmentsScheduler from "./components/Scheduler/Scheduler";
+import AddToGarage from "./components/Garage/AddToGarage";
+import MoveToGarage from "./components/Garage/MoveToGarage";
+import Garage from "./components/Garage/Garage";
 
 function App() {
   const [{ }, dispatch] = useUserStateValue();
@@ -54,9 +55,9 @@ function App() {
       <Switch>
         <Route path="/user/admin" component={Admin} />
         <Route exact path="/view/archive" component={Archive} />
-        <Route exact path="/view/cars" component={ActiveCars} />
-        <Route exact path="/create/car" component={AddActiveCars} />
-        <Route exact path="/create/car/:id" component={AddActiveCars} />
+        <Route exact path="/view/garage" component={Garage} />
+        <Route exact path="/create/car" component={AddToGarage} />
+        <Route exact path="/create/car/:id" component={MoveToGarage} />
         <Route exact path="/view/appointments" component={Appointments} />
         <Route exact path="/view/scheduler" component={AppointmentsScheduler} />
         <Route exact path="/create/appointment" component={AddAppointment} />

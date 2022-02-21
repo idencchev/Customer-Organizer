@@ -11,7 +11,8 @@ const endpoints = {
     getAppointmentById: (id) => `/api/appointments/${id}`,
     editAppointment: (id) => `/api/appointments/${id}`,
     deleteAppointment: (id) => `/api/appointments/${id}`,
-    verify: '/api/auth/verify'
+    verify: '/api/auth/verify',
+    createCar: '/api/garage/create'
 }
 
 export async function loginUser(data) {
@@ -107,6 +108,15 @@ export async function deleteAppointment(id) {
 export async function verifyToken() {
     try {
         const response = await api.post(endpoints.verify);
+        return response;
+    } catch (error) {
+        throw error;
+    }
+}
+
+export async function createCarInGarage(data) {
+    try {
+        const response = await api.post(endpoints.createCar, data);
         return response;
     } catch (error) {
         throw error;
