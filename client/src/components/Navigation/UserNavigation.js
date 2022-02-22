@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useUserStateValue } from "../../Context/UserStateProvider.js";
-import { logoutUser } from "../../api/data.js";
+import { useUserStateValue } from "../../Context/UserStateProvider";
+import { logoutUser } from "../../api/data";
 
 function UserNavigation() {
 

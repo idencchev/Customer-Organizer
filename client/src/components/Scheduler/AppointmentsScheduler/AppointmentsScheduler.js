@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
-import { deleteAppointment, getAppointments } from '../../api/data';
-import { useUserStateValue } from '../../Context/UserStateProvider';
-import AppointmentModal from './AppointmentModal';
-import PlateNumberButton from './PlateNumberButton';
-import './Scheduler.css';
+import { deleteAppointment, getAppointments } from '../../../api/data';
+import { useUserStateValue } from '../../../Context/UserStateProvider';
+import AppointmentModal from '../AppointmentModal/AppointmentModal';
+import PlateNumberButton from '../PlateNumberButton';
+import './AppointmentsScheduler.css';
 
 
 function AppointmentsScheduler() {

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import { deleteCar, getAllCars, getArchive, moveToArchive } from "../../api/data.js";
-import { useUserStateValue } from "../../Context/UserStateProvider.js";
-import CarComponent from "./CarComponent/CarComponent.js";
+import { deleteCar, getAllCars, getArchive, moveToArchive } from "../../../api/data.js";
+import { useUserStateValue } from "../../../Context/UserStateProvider.js";
+import CarComponent from "../CarComponent/CarComponent.js";
 import './Garage.css'
 
 function Garage(props) {

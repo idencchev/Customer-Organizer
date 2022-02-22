@@ -10,10 +10,10 @@ import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from "./components/Login/Login";
 import EditAppointment from "./components/Appointments/EditAppointment";
-import AppointmentsScheduler from "./components/Scheduler/Scheduler";
+import AppointmentsScheduler from "./components/Scheduler/AppointmentsScheduler/AppointmentsScheduler";
 import AddToGarage from "./components/Garage/AddToGarage";
 import MoveToGarage from "./components/Garage/MoveToGarage";
-import Garage from "./components/Garage/Garage";
+import Garage from "./components/Garage/Garage/Garage";
 import EditCar from "./components/Garage/EditCar";
 
 function App() {
