@@ -23,10 +23,10 @@ function AppointmentFormComponent({ appointmentData, onSubmitHandler, onChangeHa
                         placeholder="Example: Service, Change Clutch and etc."
                         name="notes" defaultValue={appointmentData?.notes} />
 
-                    <label htmlFor="ownerName">OWNER'S NAME</label>
+                    <label htmlFor="ownerName">CUSTOMER'S NAME</label>
                     <input onChange={onChangeHandler} type="text" placeholder="Example: John Doe" name="ownerName" defaultValue={appointmentData?.ownerName} />
 
-                    <label htmlFor="ownerPhone">OWNER'S PHONE</label>
+                    <label htmlFor="ownerPhone">CUSTOMER'S PHONE</label>
                     <input onChange={onChangeHandler} type="text" placeholder="Example: 07834205874" name="ownerPhone" defaultValue={appointmentData?.ownerPhone} />
 
                     <button className="btn-submit-edit-app" type="submit">{appointmentData ? 'EDIT' : 'BOOK'}</button>

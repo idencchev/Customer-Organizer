@@ -29,8 +29,8 @@ function CarComponent({
                 <p>Plate Number: <span className="car-span">{plateNumber}</span></p>
                 <p>Car Make And Model: <span className="car-span">{carMakeAndModel}</span></p>
                 <p>Notes: <span className="car-span">{notes}</span></p>
-                <p>Owner's Name: <span className="car-span">{ownerName}</span></p>
-                <p>Owner's Phone: <span className="car-span">{ownerPhone}</span></p>
+                <p>Customer's Name: <span className="car-span">{ownerName}</span></p>
+                <p>Customer's Phone: <span className="car-span">{ownerPhone}</span></p>
                 <p>Job Done And Parts: <span className="car-span">{jobDoneAndParts}</span></p>
                 <p>Mechanic: <span className="car-span">{mechanicName}</span></p>
                 <p>Created by: <span className="car-span">{createdBy}</span></p>

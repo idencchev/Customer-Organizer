@@ -23,10 +23,10 @@ function CarsFormComponent({ carData, onSubmitHandler, onChangeHandler, showEdit
           placeholder="Example: Service, Change Clutch and etc."
           name="notes" defaultValue={carData?.notes} />
 
-        <label htmlFor="ownerName">OWNER'S NAME</label>
+        <label htmlFor="ownerName">CUSTOMER'S NAME</label>
         <input onChange={onChangeHandler} type="text" placeholder="Example: John Doe" name="ownerName" defaultValue={carData?.ownerName} />
 
-        <label htmlFor="ownerPhone">OWNER'S PHONE</label>
+        <label htmlFor="ownerPhone">CUSTOMER'S PHONE</label>
         <input onChange={onChangeHandler} type="text" placeholder="Example: 07834205874" name="ownerPhone" defaultValue={carData?.ownerPhone} />
 
         <label htmlFor="jobDoneAndParts">JOB DONE AND PARTS</label>

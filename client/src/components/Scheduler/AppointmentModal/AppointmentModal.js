@@ -35,8 +35,8 @@ function AppointmentModal({ setOpenModal,
           <p>Date: <span className="appointment-span">{appointmentDate?.split('-').reverse().join('/')}</span> </p>
           <p>Car Make And Model: <span className="appointment-span">{carMakeAndModel}</span></p>
           <p>Notes: <span className="appointment-span">{notes}</span></p>
-          <p>Owner's Name: <span className="appointment-span">{ownerName}</span></p>
-          <p>Owner's Phone: <span className="appointment-span">{ownerPhone}</span></p>
+          <p>Customer's Name: <span className="appointment-span">{ownerName}</span></p>
+          <p>Customer's Phone: <span className="appointment-span">{ownerPhone}</span></p>
           <p>Booked by: <span className="appointment-span">{createdBy}</span></p>
         </div>
 
