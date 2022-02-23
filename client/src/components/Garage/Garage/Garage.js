@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import { deleteCar, getAllCars, getArchive, moveToArchive } from "../../../api/data.js";
-import { useUserStateValue } from "../../../Context/UserStateProvider.js";
-import CarComponent from "../CarComponent/CarComponent.js";
+import { deleteCar, getAllCars, moveToArchive } from "../../../api/data";
+import { useUserStateValue } from "../../../Context/UserStateProvider";
+import CarComponent from "../CarComponent/CarComponent";
 import './Garage.css'
 
-function Garage(props) {
+function Archive() {
     const [{ isAdmin }] = useUserStateValue();
 
     const [cars, setCars] = useState([]);
@@ -14,18 +14,10 @@ function Garage(props) {
     const carsPerPage = 4;
     const pagesVisited = pageNumber * carsPerPage;
 
-    const pathname = props.history.location.pathname;
-
     useEffect(async () => {
-        if (pathname === '/view/garage') {
-            const data = await getAllCars();
-            setCars(data);
-        } else {
-            const data = await getArchive();
-            setCars(data);
-        }
-
-    }, [pathname]);
+        const data = await getAllCars();
+        setCars(data);
+    }, []);
 
     const onDeleteCar = async (id) => {
         try {
@@ -86,4 +78,4 @@ function Garage(props) {
         </div>
     );
 }
-export default Garage;
+export default Archive;

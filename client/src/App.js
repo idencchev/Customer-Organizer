@@ -15,6 +15,7 @@ import AddToGarage from "./components/Garage/AddToGarage";
 import MoveToGarage from "./components/Garage/MoveToGarage";
 import Garage from "./components/Garage/Garage/Garage";
 import EditCar from "./components/Garage/EditCar";
+import Archive from "./components/Garage/Garage/Archive";
 
 function App() {
   const [{ }, dispatch] = useUserStateValue();
@@ -52,7 +53,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/user/admin" component={Admin} />
-        <Route exact path="/view/archive" component={Garage} />
+        <Route exact path="/view/archive" component={Archive} />
         <Route exact path="/view/garage" component={Garage} />
         <Route exact path="/create/car" component={AddToGarage} />
         <Route exact path="/create/car/:id" component={MoveToGarage} />

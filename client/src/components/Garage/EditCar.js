@@ -17,13 +17,14 @@ function EditCar(props) {
         ownerPhone: null,
         createdBy: null,
         jobDoneAndParts: null,
-        mechanicName: null
+        mechanicName: null,
+        archive: null,
     });
 
     const id = props.history.location.pathname.split("/").pop();
 
     useEffect(async () => {
-        const { garageDate, plateNumber, carMakeAndModel, ownerName, notes, ownerPhone, jobDoneAndParts, mechanicName } = await getCarById(id);
+        const { garageDate, plateNumber, carMakeAndModel, ownerName, notes, ownerPhone, jobDoneAndParts, mechanicName, archive } = await getCarById(id);
         setCarData({
             garageDate: garageDate,
             plateNumber: plateNumber,
@@ -33,9 +34,9 @@ function EditCar(props) {
             ownerPhone: ownerPhone,
             createdBy: username,
             jobDoneAndParts: jobDoneAndParts,
-            mechanicName: mechanicName
+            mechanicName: mechanicName,
+            archive: archive
         });
-
     }, []);
 
     const onChangeHandler = (e) => {
@@ -50,6 +51,9 @@ function EditCar(props) {
         try {
             carData['createdBy'] = username;
             await editCar(id, carData);
+            if (carData.archive) {
+                return props.history.push('/view/archive');
+            }
             props.history.push('/view/garage');
         } catch (error) {
             console.log(error);

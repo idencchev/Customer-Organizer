@@ -76,7 +76,7 @@ router.put('/move/:id', isAuthenticated, async (req, res) => {
   try {
 
     const carData = await moveToArchive(req.params.id);
-    res.status(200).json({ message: `${carData.plateNumber} has been moved to archive!` });
+    res.status(200).json({ carData, message: `${carData.plateNumber} has been moved to archive!` });
 
   } catch (error) {
     return res.status(409).json({ error });

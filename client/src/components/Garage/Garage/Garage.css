@@ -1,4 +1,4 @@
-.view-cars{
+.view-cars {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -36,4 +36,31 @@
 .paginationDisabled a {
     color: #131921;
     background-color: rgb(254, 153, 0);
+}
+
+.fa-search {
+    width: 20%;
+    color: rgb(254, 153, 0);
+    font-size: 25px;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.search {
+    padding: 20px;
+    width: 50%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.search .search-input {
+    border-radius: 10px;
+}
+
+.not-found-search {
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    margin-bottom: 450px;
 }
