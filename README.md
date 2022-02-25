@@ -30,6 +30,7 @@ Developed for Viktor's AutoCare Limited, Swansea, United Kingom
 - [React-paginate](https://github.com/AdeleD/react-paginate/blob/master/README.md) - v8.1.0
 
 ![alt text][logo]
+
 [logo]: https://i.ibb.co/mCm0mJh/image.png"
 
 https://ibb.co/6R282YD
