@@ -58,12 +58,16 @@
     border-radius: 26px;
     font-weight: bold;
     border: 3px solid transparent;
-  }
+}
 
-  .btn-submit-edit-app:hover {
+.btn-submit-edit-app:hover {
     opacity: 0.9;
     background-color: #131921;
     color: rgb(254, 153, 0);
     border: 3px solid rgb(254, 153, 0);
     transition: background-color 0.3s;
-  }
+}
+
+.error-msg {
+    color: red;
+}
