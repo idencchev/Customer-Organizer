@@ -1,6 +1,6 @@
 # Customer-Organizer
 
-**MERN Stack
+##MERN Stack
 
 The goal of the application is to turn the time-consuming paper
 work into an interactive web application. The application allows easy
