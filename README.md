@@ -2,6 +2,7 @@
 
 ### MERN Stack
 
+### Office Application
 The goal of the application is to turn the time-consuming paper
 work into an interactive web application. The application allows easy
 booking and management of saved appointments of garage's
