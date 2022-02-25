@@ -29,7 +29,8 @@ Developed for Viktor's AutoCare Limited, Swansea, United Kingom
 - [React-calendar](https://github.com/wojtekmaj/react-calendar/blob/main/README.md) - v3.7.0
 - [React-paginate](https://github.com/AdeleD/react-paginate/blob/master/README.md) - v8.1.0
 
-[alt text][url=https://ibb.co/6R282YD][img]https://i.ibb.co/6R282YD/image.png[/img][/url]
+![alt text][logo]
+[logo]: https://i.ibb.co/mCm0mJh/image.png"
 
 https://ibb.co/6R282YD
 https://ibb.co/Xj9H56s
