@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import CarsFormComponent from "./CarsFormComponent/CarsFormComponent";
-import { useUserStateValue } from "../../Context/UserStateProvider";
 import { createCarInGarage } from "../../api/data";
+import { useSelector } from "react-redux";
 
 function AddToGarage(props) {
 
-    const [{ username }] = useUserStateValue();
+    const { username } = useSelector((state) => state.account);
 
     const [carData, setCarData] = useState({
         garageDate: '',

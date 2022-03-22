@@ -1,9 +1,9 @@
 import React from "react";
-import { useUserStateValue } from "../../Context/UserStateProvider";
+import { useSelector } from "react-redux";
 import './Home.css';
 
 function Home() {
-    const [{ username }] = useUserStateValue();
+    const { username } = useSelector((state) => state.account);
     return (
         <div className="home-component">
             <h1 className="home-h1">Welcome, {username ? username : 'Guest'}!</h1>

@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { deleteUser, getUsers, registerUser } from "../../api/data.js";
-import { useUserStateValue } from "../../Context/UserStateProvider.js";
+import { deleteUser, getUsers, registerUser } from "../../api/data";
+import { useSelector } from "react-redux";
 import './Admin.css'
 
 function Admin() {
-
-    const [{ id }] = useUserStateValue();
+    const { id } = useSelector((state) => state.account);
 
     const [userData, setUserData] = useState({
         username: '',
@@ -50,9 +49,8 @@ function Admin() {
     }
 
     const onDeleteHandler = async (id) => {
-        const delUser = await deleteUser(id);
+        await deleteUser(id);
         setusersData(usersData.filter(usersData => usersData._id !== id));
-        console.log(delUser);
     }
 
     return (
@@ -79,7 +77,7 @@ function Admin() {
                         return (
                             <li key={user._id} className="user-list-li">
                                 {user.isAdmin ? 'Admin Account: ' : 'User Account: '}
-                                {user.username + ' ' }   
+                                {user.username + ' '}
                                 {user._id !== id ? <button onClick={() => onDeleteHandler(user._id)} className="btn-delete-user">DELETE</button> : null}
                             </li>
                         )

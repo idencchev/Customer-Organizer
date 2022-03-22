@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
 import { loginUser } from "../../api/data";
-import { useUserStateValue } from "../../Context/UserStateProvider";
+import actions from "../../redux/actions";
 import './Login.css';
 
 function Login(props) {
+    const dispatch = useDispatch();
 
-    const [{ }, dispatch] = useUserStateValue();
+    const { login } = bindActionCreators(actions, dispatch);
 
     const [userData, setUserData] = useState({
         username: "",
@@ -17,25 +20,20 @@ function Login(props) {
             ...prevState,
             [e.target.name]: e.target.value.toLowerCase()
         }));
-
     };
 
     const onLoginHandler = async (e) => {
         e.preventDefault();
         try {
-
             const response = await loginUser(userData);
+            const loginData = {
+                isVerified: true,
+                username: response.userData.username,
+                id: response.userData._id,
+                isAdmin: response.userData.isAdmin
+            }
 
-            dispatch({
-                type: 'LOGIN',
-                payload: {
-                    isVerified: true,
-                    username: response.userData.username,
-                    id: response.userData._id,
-                    isAdmin: response.userData.isAdmin
-                }
-            });
-
+            login(loginData);
             props.history.push('/');
         } catch (error) {
             console.log(error);

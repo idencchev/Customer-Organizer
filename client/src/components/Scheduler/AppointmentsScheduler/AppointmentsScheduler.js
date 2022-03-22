@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
+import { useSelector } from 'react-redux';
 import { deleteAppointment, getAppointments } from '../../../api/data';
-import { useUserStateValue } from '../../../Context/UserStateProvider';
 import AppointmentModal from '../AppointmentModal/AppointmentModal';
 import PlateNumberButton from '../PlateNumberButton';
 import './AppointmentsScheduler.css';
 
 function AppointmentsScheduler() {
-    const [{ isAdmin }] = useUserStateValue();
+    const { isAdmin } = useSelector((state) => state.account);
     const [modalOpen, setModalOpen] = useState(false);
     const [appointments, setAppointments] = useState([]);
     const [modalData, setModalData] = useState({});

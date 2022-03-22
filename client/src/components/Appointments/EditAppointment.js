@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { editAppointment, getAppointmentById } from "../../api/data";
-import { useUserStateValue } from "../../Context/UserStateProvider";
 import AppointmentFormComponent from "./AppointmentFormComponent/AppointmentFormComponent";
 
 function EditAppointment(props) {
 
-    const [{ username }] = useUserStateValue();
+    const { username } = useSelector((state) => state.account);
 
     const [appointmentData, setAppointmentData] = useState({
         appointmentDate: null,
@@ -50,11 +50,11 @@ function EditAppointment(props) {
     };
 
     return (
-            <AppointmentFormComponent
-                appointmentData={appointmentData}
-                onChangeHandler={onChangeHandler}
-                onSubmitHandler={onEditHandler}
-            />
+        <AppointmentFormComponent
+            appointmentData={appointmentData}
+            onChangeHandler={onChangeHandler}
+            onSubmitHandler={onEditHandler}
+        />
     )
 }
 

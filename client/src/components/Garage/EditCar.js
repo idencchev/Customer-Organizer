@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { createCarInGarage, editCar, getCarById } from '../../api/data';
-import { useUserStateValue } from '../../Context/UserStateProvider';
+import { useSelector } from 'react-redux';
+import { editCar, getCarById } from '../../api/data';
 import CarsFormComponent from './CarsFormComponent/CarsFormComponent';
 
 function EditCar(props) {
 
-    const [{ username }] = useUserStateValue();
+    const { username } = useSelector((state) => state.account);
     const [showEditButton, setEditButton] = useState(true);
     const [carData, setCarData] = useState({
         id: null,

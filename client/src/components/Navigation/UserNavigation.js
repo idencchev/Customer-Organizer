@@ -1,17 +1,21 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import { useUserStateValue } from "../../Context/UserStateProvider";
+import { bindActionCreators } from "redux";
+import { useDispatch, useSelector } from "react-redux";
+import actions from "../../redux/actions";
 import { logoutUser } from "../../api/data";
 
 function UserNavigation() {
+    const { isVerified, isAdmin } = useSelector((state) => state.account);
 
-    const [{ isVerified, isAdmin }, dispatch] = useUserStateValue();
+    const dispatch = useDispatch();
+    const { logout } = bindActionCreators(actions, dispatch);
 
     const history = useHistory();
 
     const logoutHandler = async () => {
         await logoutUser();
-        dispatch({ type: 'LOGOUT' })
+        logout();
         history.push('/');
     };
 

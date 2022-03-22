@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
-import { useUserStateValue } from "./Context/UserStateProvider";
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from 'redux';
+import actions from "./redux/actions";
 import { verifyToken } from "./api/data";
 
 import AddAppointment from "./components/Appointments/AddAppointment";
@@ -18,19 +20,18 @@ import EditCar from "./components/Garage/EditCar";
 import Archive from "./components/Garage/Garage/Archive";
 
 function App() {
-  const [{ }, dispatch] = useUserStateValue();
+
   const history = useHistory();
-  
+  const dispatch = useDispatch();
+  const { verifyUser } = bindActionCreators(actions, dispatch);
+
   useEffect(async () => {
     const verifyData = await verifyToken();
 
     const path = history.location.pathname;
 
     if (verifyData.isVerified) {
-      dispatch({
-        type: 'VERIFY',
-        payload: verifyData
-      });
+      verifyUser(verifyData);
 
       if (path === '/login') {
         return history.push('/');

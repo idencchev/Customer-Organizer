@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import ReactPaginate from "react-paginate";
+import { useSelector } from "react-redux";
 import { deleteCar, getArchive } from "../../../api/data";
-import { useUserStateValue } from "../../../Context/UserStateProvider";
 import CarComponent from "../CarComponent/CarComponent";
 import './Garage.css'
 
 function Garage() {
-    const [{ isAdmin }] = useUserStateValue();
+    const { isAdmin } = useSelector((state) => state.account);
 
     const [archive, setArchive] = useState([]);
 

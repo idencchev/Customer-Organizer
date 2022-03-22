@@ -5,7 +5,7 @@ export const initialState = {
     isAdmin: false
 }
 
-const reducer = (state, action) => {
+const reducer = (state = initialState, action) => {
 
     switch (action.type) {
         case 'LOGIN':

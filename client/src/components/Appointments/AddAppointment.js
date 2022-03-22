@@ -1,11 +1,11 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { createAppointment } from "../../api/data";
-import { useUserStateValue } from "../../Context/UserStateProvider";
 import AppointmentFormComponent from "./AppointmentFormComponent/AppointmentFormComponent";
 
 function AddAppointment(props) {
 
-    const [{ username }] = useUserStateValue();
+    const { username } = useSelector((state) => state.account);
 
     const [appointmentData, setAppointmentData] = useState({
         appointmentDate: '',

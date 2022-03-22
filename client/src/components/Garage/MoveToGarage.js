@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { createCarInGarage, deleteAppointment, getAppointmentById } from '../../api/data';
-import { useUserStateValue } from '../../Context/UserStateProvider';
 import CarsFormComponent from './CarsFormComponent/CarsFormComponent';
 
 function MoveToGarage(props) {
 
-    const [{ username }] = useUserStateValue();
+    const { username } = useSelector((state) => state.account);
 
     const [carData, setCarData] = useState({
         garageDate: null,
