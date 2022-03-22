@@ -29,6 +29,9 @@ Developed for Viktor's AutoCare Limited, Swansea, United Kingom
 - [React-router-dom](https://github.com/ReactTraining/react-router#readme) - v5.2.0
 - [React-calendar](https://github.com/wojtekmaj/react-calendar/blob/main/README.md) - v3.7.0
 - [React-paginate](https://github.com/AdeleD/react-paginate/blob/master/README.md) - v8.1.0
+- [React Redux](https://github.com/reduxjs/react-redux#readme) - v7.2.6
+- [Redux](https://github.com/reduxjs/redux#readme) - v4.1.2
+- [Redux Thunk](https://github.com/reduxjs/redux-thunk#readme) - v2.4.1
 
 ## Images with test data
 
