@@ -9,7 +9,7 @@ const config = {
     },
     production: {
         PORT: 80,
-        DB_CONNECTION: 'mongodb+srv://idenchev:qweasdzxc@cluster0.fm1m3.mongodb.net/customer-organizer?retryWrites=true&w=majority', // Atlas
+        DB_CONNECTION: 'mongodb+srv://MYUSERNAME:MYPASSWORD@cluster0.fm1m3.mongodb.net/customer-organizer?retryWrites=true&w=majority', // Atlas
         CONNECTED_TO: 'MongoDB Atlas',
         SALT_ROUNDS: 10,
         JWT_SECRET: 'SOMESECRET',
