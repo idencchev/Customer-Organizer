@@ -49,8 +49,7 @@ Developed for Viktor's AutoCare Limited, Swansea, United Kingom
 - [Nodemon](https://github.com/remy/nodemon/blob/main/README.md) - v1.19.2
 
 ### Client-side
-<<<<<<< HEAD
-=======
+
 - [Create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) - v17.0.2
 - [React-router-dom](https://github.com/ReactTraining/react-router#readme) - v5.2.0
 - [React-calendar](https://github.com/wojtekmaj/react-calendar/blob/main/README.md) - v3.7.0
@@ -58,15 +57,6 @@ Developed for Viktor's AutoCare Limited, Swansea, United Kingom
 - [React Redux](https://github.com/reduxjs/react-redux#readme) - v7.2.6
 - [Redux](https://github.com/reduxjs/redux#readme) - v4.1.2
 - [Redux Thunk](https://github.com/reduxjs/redux-thunk#readme) - v2.4.1
->>>>>>> 247d3fe18278bb06fab1716c62dca70f4cac28d2
-
-- [Create React App](https://github.com/facebook/create-react-app/blob/main/README.md) - (React: v17.0.2)
-- [React Router Dom](https://github.com/remix-run/react-router/blob/main/README.md) - v5.2.0
-- [Redux](https://github.com/reduxjs/redux/blob/master/README.md) - v4.1.2
-- [React Redux](https://github.com/reduxjs/react-redux/blob/master/README.md) - v7.2.6
-- [Redux Thunk](https://github.com/reduxjs/redux-thunk/blob/master/README.md) - v2.4.1
-- [React Paginate](https://github.com/AdeleD/react-paginate/blob/master/README.md) - v8.1.0
-- [React Calendar](https://github.com/wojtekmaj/react-calendar/blob/main/README.md) - v3.7.0
 
 ## :white_check_mark: Images with test data
 
